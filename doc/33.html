@@ -1,0 +1,985 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>33 | Java Agent与字节码注入 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="34.html" />
+    
+    
+    <link rel="prev" href="32.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="00.html">
+            
+                <a href="00.html">
+            
+                    
+                    开篇词 | 为什么我们要学习Java虚拟机？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="01.html">
+            
+                <a href="01.html">
+            
+                    
+                    01 | Java代码是怎么运行的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="02.html">
+            
+                <a href="02.html">
+            
+                    
+                    02 | Java的基本类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="03.html">
+            
+                <a href="03.html">
+            
+                    
+                    03 | Java虚拟机是如何加载Java类的?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="04.html">
+            
+                <a href="04.html">
+            
+                    
+                    04 | JVM是如何执行方法调用的？（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="05.html">
+            
+                <a href="05.html">
+            
+                    
+                    05 | JVM是如何执行方法调用的？（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="06.html">
+            
+                <a href="06.html">
+            
+                    
+                    06 | JVM是如何处理异常的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="06-1.html">
+            
+                <a href="06-1.html">
+            
+                    
+                    【工具篇】 常用工具介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="07.html">
+            
+                <a href="07.html">
+            
+                    
+                    07 | JVM是如何实现反射的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="08.html">
+            
+                <a href="08.html">
+            
+                    
+                    08 | JVM是怎么实现invokedynamic的？（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="09.html">
+            
+                <a href="09.html">
+            
+                    
+                    09 | JVM是怎么实现invokedynamic的？（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10 | Java对象的内存布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    11 | 垃圾回收（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.14" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    12 | 垃圾回收（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.15" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    13 | Java内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.16" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    14 | Java虚拟机是怎么实现synchronized的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.17" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    15 | Java语法糖与Java编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.18" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    16 | 即时编译（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.19" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    17 | 即时编译（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.20" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    18 | 即时编译器的中间表达形式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.21" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    19 | Java字节码（基础篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.22" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    20 | 方法内联（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.23" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    21 | 方法内联（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.24" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    22 | HotSpot虚拟机的intrinsic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.25" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    23 | 逃逸分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.26" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    24 | 字段访问相关优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.27" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    25 | 循环优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.28" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    26 | 向量化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.29" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    27 | 注解处理器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.30" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    28 | 基准测试框架JMH（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.31" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    29 | 基准测试框架JMH（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.32" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    30 | Java虚拟机的监控及诊断工具（命令行篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.33" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    31 | Java虚拟机的监控及诊断工具（GUI篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.34" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    32 | JNI的运行机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.35" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    33 | Java Agent与字节码注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.36" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    34 | Graal：用Java编译Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.37" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    35 | Truffle：语言实现框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.38" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    36 | SubstrateVM：AOT编译框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.39" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    尾声 | 道阻且长，努力加餐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >33 | Java Agent与字节码注入</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="33--java-agent&#x4E0E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;">33 | Java Agent&#x4E0E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;</h1>
+<p>&#x5173;&#x4E8E; Java agent&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x80FD;&#x90FD;&#x542C;&#x8FC7;&#x5927;&#x540D;&#x9F0E;&#x9F0E;&#x7684;<code>premain</code>&#x65B9;&#x6CD5;&#x3002;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6307;&#x7684;&#x5C31;&#x662F;&#x5728;<code>main</code>&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>package org.example;
+
+public class MyAgent {
+  public static void premain(String args) {
+    System.out.println(&quot;premain&quot;);
+  }
+}
+</code></pre><p>&#x6211;&#x5728;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;<code>premain</code>&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x6240;&#x80FD;&#x8BC6;&#x522B;&#x7684;<code>premain</code>&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x800C;&#x5E76;&#x975E;&#x7C7B;&#x4F3C;&#x4E8E;<code>main</code>&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x4EE5; Java agent &#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x8BE5;<code>premain</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x5176;&#x6253;&#x5305;&#x6210; jar &#x5305;&#xFF0C;&#x5E76;&#x5728;&#x5176;&#x4E2D;&#x7684; MANIFEST.MF &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6307;&#x5B9A;&#x6240;&#x8C13;&#x7684;<code>Premain-class</code>&#x3002;&#x5177;&#x4F53;&#x7684;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code># &#x6CE8;&#x610F;&#x7B2C;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#x4F1A;&#x5411; manifest.txt &#x6587;&#x4EF6;&#x5199;&#x5165;&#x4E24;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x4E00;&#x884C;&#x7A7A;&#x884C;
+$ echo &apos;Premain-Class: org.example.MyAgent
+&apos; &gt; manifest.txt
+$ jar cvmf manifest.txt myagent.jar org/
+$ java -javaagent:myagent.jar HelloWorld
+premain
+Hello, World
+</code></pre><p>&#x9664;&#x4E86;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6307;&#x5B9A; Java agent &#x4E4B;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Attach API &#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x3002;&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>import java.io.IOException;
+
+import com.sun.tools.attach.*;
+
+public class AttachTest {
+  public static void main(String[] args)
+      throws AttachNotSupportedException, IOException, AgentLoadException, AgentInitializationException {
+    if (args.length &lt;= 1) {
+      System.out.println(&quot;Usage: java AttachTest &lt;PID&gt; /PATH/TO/AGENT.jar&quot;);
+      return;
+    }
+    VirtualMachine vm = VirtualMachine.attach(args[0]);
+    vm.loadAgent(args[1]);
+  }
+}
+</code></pre><p>&#x4F7F;&#x7528; Attach API &#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x7684; Java agent &#x4E0D;&#x4F1A;&#x518D;&#x5148;&#x4E8E;<code>main</code>&#x65B9;&#x6CD5;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x53E6;&#x4E00;&#x865A;&#x62DF;&#x673A;&#x8C03;&#x7528; Attach API &#x7684;&#x65F6;&#x673A;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x5B83;&#x8FD0;&#x884C;&#x7684;&#x4E5F;&#x4E0D;&#x518D;&#x662F;<code>premain</code>&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x662F;&#x540D;&#x4E3A;<code>agentmain</code>&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>public class MyAgent { 
+  public static void agentmain(String args) {
+    System.out.println(&quot;agentmain&quot;);
+  }
+}
+</code></pre><p>&#x76F8;&#x5E94;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x66F4;&#x65B0; jar &#x5305;&#x4E2D;&#x7684; manifest &#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x5176;&#x5305;&#x542B;<code>Agent-Class</code>&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;<code>Agent-Class: org.example.MyAgent</code>&#x3002;</p>
+<pre><code>$ echo &apos;Agent-Class: org.example.MyAgent
+&apos; &gt; manifest.txt
+$ jar cvmf manifest.txt myagent.jar org/
+$ java HelloWorld
+Hello, World
+$ jps
+$ java AttachTest &lt;pid&gt; myagent.jar
+agentmain
+// &#x6700;&#x540E;&#x4E00;&#x53E5;&#x8F93;&#x51FA;&#x6765;&#x81EA;&#x4E8E;&#x8FD0;&#x884C; HelloWorld &#x7684; Java &#x8FDB;&#x7A0B;
+</code></pre><p>Java &#x865A;&#x62DF;&#x673A;&#x5E76;&#x4E0D;&#x9650;&#x5236; Java agent &#x7684;&#x6570;&#x91CF;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x5728; java &#x547D;&#x4EE4;&#x540E;&#x9644;&#x4E0A;&#x591A;&#x4E2A;<code>-javaagent</code>&#x53C2;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x8FDC;&#x7A0B; attach &#x591A;&#x4E2A; Java agent&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x4F1A;&#x6309;&#x7167;&#x5B9A;&#x4E49;&#x987A;&#x5E8F;&#xFF0C;&#x6216;&#x8005; attach &#x7684;&#x987A;&#x5E8F;&#x9010;&#x4E2A;&#x6267;&#x884C;&#x8FD9;&#x4E9B; Java agent&#x3002;</p>
+<p>&#x5728;<code>premain</code>&#x65B9;&#x6CD5;&#x6216;&#x8005;<code>agentmain</code>&#x65B9;&#x6CD5;&#x4E2D;&#x6253;&#x5370;&#x4E00;&#x4E9B;&#x5B57;&#x7B26;&#x4E32;&#x5E76;&#x4E0D;&#x51FA;&#x5947;&#xFF0C;&#x6211;&#x4EEC;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x903B;&#x8F91;&#x5E76;&#x5165;<code>main</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;Java agent &#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x5957; instrumentation &#x673A;&#x5236;&#xFF0C;&#x5141;&#x8BB8;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x62E6;&#x622A;&#x7C7B;&#x52A0;&#x8F7D;&#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x66F4;&#x6539;&#x8BE5;&#x7C7B;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x57FA;&#x4E8E;&#x8FD9;&#x4E00;&#x673A;&#x5236;&#x7684;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x3002;</p>
+<h2 id="&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;">&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;</h2>
+<pre><code>package org.example;
+
+import java.lang.instrument.*;
+import java.security.ProtectionDomain;
+
+public class MyAgent {
+  public static void premain(String args, Instrumentation instrumentation) {
+    instrumentation.addTransformer(new MyTransformer());
+  }
+
+  static class MyTransformer implements ClassFileTransformer {
+    public byte[] transform(ClassLoader loader, String className, Class&lt;?&gt; classBeingRedefined,
+        ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+      System.out.printf(&quot;Loaded %s: 0x%X%X%X%X\n&quot;, className, classfileBuffer[0], classfileBuffer[1],
+          classfileBuffer[2], classfileBuffer[3]);
+      return null;
+    }
+  }
+}
+</code></pre><p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>premain</code>&#x65B9;&#x6CD5;&#x591A;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;<code>Instrumentation</code>&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x6765;&#x6CE8;&#x518C;&#x7C7B;&#x52A0;&#x8F7D;&#x4E8B;&#x4EF6;&#x7684;&#x62E6;&#x622A;&#x5668;&#x3002;&#x8BE5;&#x62E6;&#x622A;&#x5668;&#x9700;&#x8981;&#x5B9E;&#x73B0;<code>ClassFileTransformer</code>&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x91CD;&#x5199;&#x5176;&#x4E2D;&#x7684;<code>transform</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p><code>transform</code>&#x65B9;&#x6CD5;&#x5C06;&#x63A5;&#x6536;&#x4E00;&#x4E2A; byte &#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x6B63;&#x5728;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x6253;&#x5370;&#x8BE5;&#x6570;&#x7EC4;&#x7684;&#x524D;&#x56DB;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; Java class &#x6587;&#x4EF6;&#x7684;&#x9B54;&#x6570;&#xFF08;magic number&#xFF09;0xCAFEBABE&#x3002;</p>
+<p><code>transform</code>&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; byte &#x6570;&#x7EC4;&#xFF0C;&#x4EE3;&#x8868;&#x66F4;&#x65B0;&#x8FC7;&#x540E;&#x7684;&#x7C7B;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;&#x5F53;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E4B;&#x540E;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x4F1A;&#x4F7F;&#x7528;&#x6240;&#x8FD4;&#x56DE;&#x7684; byte &#x6570;&#x7EC4;&#xFF0C;&#x6765;&#x5B8C;&#x6210;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5DE5;&#x4F5C;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x5982;&#x679C;<code>transform</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE; null &#x6216;&#x8005;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x90A3;&#x4E48; Java &#x865A;&#x62DF;&#x673A;&#x5C06;&#x4F7F;&#x7528;&#x539F;&#x6765;&#x7684; byte &#x6570;&#x7EC4;&#x5B8C;&#x6210;&#x7C7B;&#x52A0;&#x8F7D;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x57FA;&#x4E8E;&#x8FD9;&#x4E00;&#x7C7B;&#x52A0;&#x8F7D;&#x4E8B;&#x4EF6;&#x7684;&#x62E6;&#x622A;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#xFF08;bytecode instrumentation&#xFF09;&#xFF0C;&#x5F80;&#x6B63;&#x5728;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#x4E2D;&#x63D2;&#x5165;&#x989D;&#x5916;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<p>&#x5728;&#x5DE5;&#x5177;&#x7BC7;&#x4E2D;&#x6211;&#x66FE;&#x7ECF;&#x4ECB;&#x7ECD;&#x8FC7;&#x5B57;&#x8282;&#x7801;&#x5DE5;&#x7A0B;&#x6846;&#x67B6; ASM &#x7684;&#x7528;&#x6CD5;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x5C06;&#x6F14;&#x793A;&#x5B83;&#x7684;<a href="https://search.maven.org/artifact/org.ow2.asm/asm-tree/7.0-beta/jar" target="_blank">tree &#x5305;</a>&#xFF08;&#x4F9D;&#x8D56;&#x4E8E;<a href="https://search.maven.org/artifact/org.ow2.asm/asm/7.0-beta/jar" target="_blank">&#x57FA;&#x7840;&#x5305;</a>&#xFF09;&#xFF0C;&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;&#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<pre><code>package org.example;
+
+import java.lang.instrument.*;
+import java.security.ProtectionDomain;
+import org.objectweb.asm.*;
+import org.objectweb.asm.tree.*;
+
+public class MyAgent {
+  public static void premain(String args, Instrumentation instrumentation) {
+    instrumentation.addTransformer(new MyTransformer());
+  }
+
+  static class MyTransformer implements ClassFileTransformer, Opcodes {
+    public byte[] transform(ClassLoader loader, String className, Class&lt;?&gt; classBeingRedefined,
+        ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+      ClassReader cr = new ClassReader(classfileBuffer);
+      ClassNode classNode = new ClassNode(ASM7);
+      cr.accept(classNode, ClassReader.SKIP_FRAMES);
+
+      for (MethodNode methodNode : classNode.methods) {
+        if (&quot;main&quot;.equals(methodNode.name)) {
+          InsnList instrumentation = new InsnList();
+          instrumentation.add(new FieldInsnNode(GETSTATIC, &quot;java/lang/System&quot;, &quot;out&quot;, &quot;Ljava/io/PrintStream;&quot;));
+          instrumentation.add(new LdcInsnNode(&quot;Hello, Instrumentation!&quot;));
+          instrumentation
+              .add(new MethodInsnNode(INVOKEVIRTUAL, &quot;java/io/PrintStream&quot;, &quot;println&quot;, &quot;(Ljava/lang/String;)V&quot;, false));
+
+          methodNode.instructions.insert(instrumentation);
+        }
+      }
+
+      ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+      classNode.accept(cw);
+      return cw.toByteArray();
+    }
+  }
+}
+</code></pre><p>&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E0D;&#x96BE;&#x7406;&#x89E3;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;<code>ClassReader</code>&#x8BFB;&#x53D6;&#x6240;&#x4F20;&#x5165;&#x7684; byte &#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;<code>ClassNode</code>&#x3002;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C06;&#x904D;&#x5386;<code>ClassNode</code>&#x4E2D;&#x7684;<code>MethodNode</code>&#x8282;&#x70B9;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BE5;&#x7C7B;&#x4E2D;&#x7684;&#x6784;&#x9020;&#x5668;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5F53;&#x9047;&#x5230;&#x540D;&#x5B57;&#x4E3A;<code>&quot;main&quot;</code>&#x7684;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x65B9;&#x6CD5;&#x7684;&#x5165;&#x53E3;&#x5904;&#x6CE8;&#x5165;<code>System.out.println(&quot;Hello, Instrumentation!&quot;);</code>&#x3002;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>$ java -javaagent:myagent.jar -cp .:/PATH/TO/asm-7.0-beta.jar:/PATH/TO/asm-tree-7.0-beta.jar HelloWorld
+Hello, Instrumentation!
+Hello, World!
+</code></pre><p>Java agent &#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x53E6;&#x5916;&#x4E24;&#x4E2A;&#x529F;&#x80FD;<code>redefine</code>&#x548C;<code>retransform</code>&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x529F;&#x80FD;&#x9488;&#x5BF9;&#x7684;&#x662F;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#xFF0C;&#x5E76;&#x8981;&#x6C42;&#x7528;&#x6237;&#x4F20;&#x5165;&#x6240;&#x8981;<code>redefine</code>&#x6216;&#x8005;<code>retransform</code>&#x7684;&#x7C7B;&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#xFF0C;<code>redefine</code>&#x6307;&#x7684;&#x662F;&#x820D;&#x5F03;&#x539F;&#x672C;&#x7684;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x5E76;&#x66FF;&#x6362;&#x6210;&#x7531;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x7684; byte &#x6570;&#x7EC4;&#x3002;&#x8BE5;&#x529F;&#x80FD;&#x6BD4;&#x8F83;&#x5371;&#x9669;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x4FEE;&#x590D;&#x51FA;&#x9519;&#x4E86;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<p><code>retransform</code>&#x5219;&#x5C06;&#x9488;&#x5BF9;&#x6240;&#x4F20;&#x5165;&#x7684;&#x7C7B;&#xFF0C;&#x91CD;&#x65B0;&#x8C03;&#x7528;&#x6240;&#x6709;&#x5DF2;&#x6CE8;&#x518C;&#x7684;<code>ClassFileTransformer</code>&#x7684;<code>transform</code>&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x4E2A;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#xFF0C;&#x5728;&#x6267;&#x884C;<code>premain</code>&#x6216;&#x8005;<code>agentmain</code>&#x65B9;&#x6CD5;&#x524D;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x65E9;&#x5DF2;&#x52A0;&#x8F7D;&#x4E86;&#x4E0D;&#x5C11;&#x7C7B;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x7C7B;&#x7684;&#x52A0;&#x8F7D;&#x4E8B;&#x4EF6;&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x62E6;&#x622A;&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x6CA1;&#x6709;&#x88AB;&#x6CE8;&#x5165;&#x3002;&#x4F7F;&#x7528;<code>retransform</code>&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x6CE8;&#x5165;&#x8FD9;&#x4E9B;&#x5DF2;&#x52A0;&#x8F7D;&#x4F46;&#x672A;&#x6CE8;&#x5165;&#x7684;&#x7C7B;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#xFF0C;&#x5728;&#x5B9A;&#x4E49;&#x4E86;&#x591A;&#x4E2A; Java agent&#xFF0C;&#x591A;&#x4E2A;&#x6CE8;&#x5165;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x79FB;&#x9664;&#x5176;&#x4E2D;&#x7684;&#x90E8;&#x5206;&#x6CE8;&#x5165;&#x3002;&#x5F53;&#x8C03;&#x7528;<code>Instrumentation.removeTransformer</code>&#x53BB;&#x9664;&#x67D0;&#x4E2A;&#x6CE8;&#x5165;&#x7C7B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8C03;&#x7528;<code>retransform</code>&#x529F;&#x80FD;&#xFF0C;&#x91CD;&#x65B0;&#x4ECE;&#x539F;&#x59CB; byte &#x6570;&#x7EC4;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x6CE8;&#x5165;&#x3002;</p>
+<p>Java agent &#x7684;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x90FD;&#x662F;&#x901A;&#x8FC7; JVMTI agent&#xFF0C;&#x4E5F;&#x5C31;&#x662F; C agent &#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;JVMTI &#x662F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x5DE5;&#x5177;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#xFF0C;&#x901A;&#x5E38;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728; C agent &#x52A0;&#x8F7D;&#x540E;&#x7684;&#x5165;&#x53E3;&#x65B9;&#x6CD5;<code>Agent_OnLoad</code>&#x5904;&#x6CE8;&#x518C;&#x5404;&#x4E2A;&#x4E8B;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#xFF08;hook&#xFF09;&#x65B9;&#x6CD5;&#x3002;&#x5F53; Java &#x865A;&#x62DF;&#x673A;&#x89E6;&#x53D1;&#x4E86;&#x8FD9;&#x4E9B;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4FBF;&#x4F1A;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x94A9;&#x5B50;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>JNIEXPORT jint JNICALL
+Agent_OnLoad(JavaVM *vm, char *options, void *reserved);
+</code></pre><p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E3A; JVMTI &#x4E2D;&#x7684;<code>ClassFileLoadHook</code>&#x4E8B;&#x4EF6;&#x8BBE;&#x7F6E;&#x94A9;&#x5B50;&#xFF0C;&#x4ECE;&#x800C;&#x5728; C &#x5C42;&#x9762;&#x62E6;&#x622A;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x4E8B;&#x4EF6;&#x3002;&#x5173;&#x4E8E; JVMTI &#x7684;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8BE5;<a href="https://docs.oracle.com/en/java/javase/11/docs/specs/jvmti.html#EventIndex" target="_blank">&#x94FE;&#x63A5;</a>&#x3002;</p>
+<h2 id="&#x57FA;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x7684;-profiler">&#x57FA;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x7684; profiler</h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x6765;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x5DE5;&#x5177;&#xFF08;&#x4F8B;&#x5982;<a href="https://www.jacoco.org/jacoco/" target="_blank">JaCoCo</a>&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x5404;&#x5F0F;&#x5404;&#x6837;&#x7684; profiler&#x3002;</p>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x7C7B;&#xFF0C;&#x5E76;&#x5728;&#x67D0;&#x4E00;&#x7A0B;&#x5E8F;&#x884C;&#x4E3A;&#x7684;&#x5468;&#x56F4;&#xFF0C;&#x6CE8;&#x5165;&#x5BF9;&#x8BE5;&#x8FD0;&#x884C;&#x65F6;&#x7C7B;&#x4E2D;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x4EE5;&#x8868;&#x793A;&#x8BE5;&#x7A0B;&#x5E8F;&#x884C;&#x4E3A;&#x6B63;&#x8981;&#x53D1;&#x751F;&#x6216;&#x8005;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x3002;</p>
+<pre><code>package org.example;
+
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class MyProfiler {
+  public static ConcurrentHashMap&lt;Class&lt;?&gt;, AtomicInteger&gt; data = new ConcurrentHashMap&lt;&gt;();
+
+  public static void fireAllocationEvent(Class&lt;?&gt; klass) {
+    data.computeIfAbsent(klass, kls -&gt; new AtomicInteger())
+        .incrementAndGet();
+  }
+
+  public static void dump() {
+    data.forEach((kls, counter) -&gt; {
+      System.err.printf(&quot;%s: %d\n&quot;, kls.getName(), counter.get());
+    });
+  }
+
+  static {
+    Runtime.getRuntime().addShutdownHook(new Thread(MyProfiler::dump));
+  }
+}
+</code></pre><p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4FBF;&#x662F;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x7C7B;&#x3002;&#x8BE5;&#x7C7B;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;<code>HashMap</code>&#xFF0C;&#x7528;&#x6765;&#x7EDF;&#x8BA1;&#x6BCF;&#x4E2A;&#x7C7B;&#x6240;&#x65B0;&#x5EFA;&#x5B9E;&#x4F8B;&#x7684;&#x6570;&#x76EE;&#x3002;&#x5F53;&#x7A0B;&#x5E8F;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x9010;&#x4E2A;&#x6253;&#x5370;&#x51FA;&#x6BCF;&#x4E2A;&#x7C7B;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4EE5;&#x53CA;&#x5176;&#x65B0;&#x5EFA;&#x5B9E;&#x4F8B;&#x7684;&#x6570;&#x76EE;&#x3002;</p>
+<p>&#x5728; Java agent &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x622A;&#x83B7;&#x6B63;&#x5728;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6BCF;&#x6761;<code>new</code>&#x5B57;&#x8282;&#x7801;&#x4E4B;&#x540E;&#x63D2;&#x5165;&#x5BF9;<code>fireAllocationEvent</code>&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x4EE5;&#x8868;&#x793A;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x65B0;&#x5EFA;&#x67D0;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x5177;&#x4F53;&#x7684;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>package org.example;
+
+import java.lang.instrument.*;
+import java.security.ProtectionDomain;
+
+import org.objectweb.asm.*;
+import org.objectweb.asm.tree.*;
+
+public class MyAgent {
+
+  public static void premain(String args, Instrumentation instrumentation) {
+    instrumentation.addTransformer(new MyTransformer());
+  }
+
+  static class MyTransformer implements ClassFileTransformer, Opcodes {
+    public byte[] transform(ClassLoader loader, String className, Class&lt;?&gt; classBeingRedefined,
+        ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+      if (className.startsWith(&quot;java&quot;)    ||
+          className.startsWith(&quot;javax&quot;)   || 
+          className.startsWith(&quot;jdk&quot;)     ||
+          className.startsWith(&quot;sun&quot;)     ||
+          className.startsWith(&quot;com/sun&quot;) ||
+          className.startsWith(&quot;org/example&quot;)) {
+        // Skip JDK classes and profiler classes
+        return null;
+      }
+
+      ClassReader cr = new ClassReader(classfileBuffer);
+      ClassNode classNode = new ClassNode(ASM7);
+      cr.accept(classNode, ClassReader.SKIP_FRAMES);
+
+      for (MethodNode methodNode : classNode.methods) {
+        for (AbstractInsnNode node : methodNode.instructions.toArray()) {
+          if (node.getOpcode() == NEW) {
+            TypeInsnNode typeInsnNode = (TypeInsnNode) node;
+
+            InsnList instrumentation = new InsnList();
+            instrumentation.add(new LdcInsnNode(Type.getObjectType(typeInsnNode.desc)));
+            instrumentation.add(new MethodInsnNode(INVOKESTATIC, &quot;org/example/MyProfiler&quot;, &quot;fireAllocationEvent&quot;,
+                &quot;(Ljava/lang/Class;)V&quot;, false));
+
+            methodNode.instructions.insert(node, instrumentation);
+          }
+        }
+      }
+
+      ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+      classNode.accept(cw);
+      return cw.toByteArray();
+    }
+  }
+
+}
+</code></pre><p>&#x4F60;&#x6216;&#x8BB8;&#x5DF2;&#x7ECF;&#x7559;&#x610F;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x6392;&#x9664;&#x5BF9; JDK &#x7C7B;&#x4EE5;&#x53CA;&#x8BE5;&#x8FD0;&#x884C;&#x65F6;&#x7C7B;&#x7684;&#x6CE8;&#x5165;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;&#x5BF9;&#x8FD9;&#x4E9B;&#x7C7B;&#x7684;&#x6CE8;&#x5165;&#x5F88;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x6700;&#x7EC8;&#x629B;&#x51FA;<code>StackOverflowException</code>&#x5F02;&#x5E38;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5728;<code>PrintStream.println</code>&#x65B9;&#x6CD5;&#x5165;&#x53E3;&#x5904;&#x6CE8;&#x5165;<code>System.out.println(&quot;blahblah&quot;)</code>&#xFF0C;&#x7531;&#x4E8E;<code>out</code>&#x662F;<code>PrintStream</code>&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x6267;&#x884C;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53C8;&#x4F1A;&#x8C03;&#x7528;<code>PrintStream.println</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x9020;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x8FD9;&#x4E00;&#x95EE;&#x9898;&#x7684;&#x5173;&#x952E;&#x5728;&#x4E8E;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x79C1;&#x6709;&#x7684;&#x6807;&#x8BC6;&#x4F4D;&#xFF0C;&#x7528;&#x4EE5;&#x533A;&#x5206;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4EE5;&#x53CA;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x3002;&#x5F53;&#x5373;&#x5C06;&#x6267;&#x884C;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x6839;&#x636E;&#x6807;&#x8BC6;&#x4F4D;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x4F4D;&#x4E8E;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E4B;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x662F;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x6807;&#x8BC6;&#x4F4D;&#x5E76;&#x6B63;&#x5E38;&#x6267;&#x884C;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#xFF1B;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0D;&#x518D;&#x6267;&#x884C;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x6280;&#x672F;&#x96BE;&#x70B9;&#x5219;&#x662F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x4E0D;&#x5C11;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x90FD;&#x4F9D;&#x8D56;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x5DE5;&#x7A0B;&#x5E93; ASM&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x7684;&#x6CE8;&#x5165;&#x903B;&#x8F91;&#x4F9D;&#x8D56;&#x4E8E; ASM &#x65F6;&#xFF0C;&#x4FBF;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x6CE8;&#x5165;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; ASM&#xFF0C;&#x800C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;&#x8F83;&#x4F4E;&#x7248;&#x672C;&#x7684; ASM &#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>JDK &#x672C;&#x8EAB;&#x4E5F;&#x4F7F;&#x7528;&#x4E86; ASM &#x5E93;&#xFF0C;&#x5982;&#x7528;&#x6765;&#x751F;&#x6210; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x9002;&#x914D;&#x5668;&#x7C7B;&#x3002;JDK &#x7684;&#x505A;&#x6CD5;&#x662F;&#x91CD;&#x547D;&#x540D;&#x6574;&#x4E2A; ASM &#x5E93;&#xFF0C;&#x4E3A;&#x6240;&#x6709;&#x7C7B;&#x7684;&#x5305;&#x540D;&#x6DFB;&#x52A0;<code>jdk.internal</code>&#x524D;&#x7F00;&#x3002;&#x6211;&#x4EEC;&#x663E;&#x7136;&#x4E0D;&#x597D;&#x76F4;&#x63A5;&#x66F4;&#x6539; ASM &#x7684;&#x5305;&#x540D;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x501F;&#x52A9;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x6765;&#x9694;&#x79BB;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x4E0A;&#x8FF0;&#x6280;&#x672F;&#x96BE;&#x70B9;&#x4E4B;&#x5916;&#xFF0C;&#x57FA;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x7684;&#x5DE5;&#x5177;&#x8FD8;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x4FBF;&#x662F;&#x89C2;&#x5BDF;&#x8005;&#x6548;&#x5E94;&#xFF08;observer effect&#xFF09;&#x5BF9;&#x6240;&#x6536;&#x96C6;&#x7684;&#x6570;&#x636E;&#x9020;&#x6210;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x5229;&#x7528;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x6536;&#x96C6;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x5047;&#x8BBE;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x88AB;&#x6CE8;&#x5165;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x7EDF;&#x8BA1;&#x88AB;&#x8C03;&#x7528;&#x8005;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x7684;&#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x6240;&#x8017;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5C06;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x5730;&#x88AB;&#x8BA1;&#x5165;&#x81F3;&#x8C03;&#x7528;&#x8005;&#x65B9;&#x6CD5;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4E4B;&#x4E2D;&#x3002;</p>
+<p>&#x518D;&#x4E3E;&#x4E00;&#x4E2A;&#x7EDF;&#x8BA1;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x6570;&#x76EE;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x5668;&#x4E2D;&#x7684;&#x9003;&#x9038;&#x5206;&#x6790;&#x53EF;&#x80FD;&#x4F1A;&#x4F18;&#x5316;&#x6389;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x5B83;&#x4E0D;&#x4F1A;&#x6D88;&#x9664;&#x76F8;&#x5E94;&#x7684;&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;&#x5BF9;<code>fireAllocationEvent</code>&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x7EDF;&#x8BA1;&#x6CA1;&#x6709;&#x5B9E;&#x9645;&#x53D1;&#x751F;&#x7684;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x5219;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x6CE8;&#x5165;&#x7684;&#x5BF9;<code>fireAllocationEvent</code>&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5C06;&#x5F71;&#x54CD;&#x5230;&#x65B9;&#x6CD5;&#x5185;&#x8054;&#x7684;&#x51B3;&#x7B56;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x5668;&#x8C03;&#x7528;&#x6070;&#x597D;&#x56E0;&#x6B64;&#x6CA1;&#x6709;&#x88AB;&#x5185;&#x8054;&#xFF0C;&#x4ECE;&#x800C;&#x9020;&#x6210;&#x5BF9;&#x8C61;&#x9003;&#x9038;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x539F;&#x672C;&#x80FD;&#x591F;&#x88AB;&#x9003;&#x9038;&#x5206;&#x6790;&#x4F18;&#x5316;&#x6389;&#x7684;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x64CD;&#x4F5C;&#x5C06;&#x65E0;&#x6CD5;&#x4F18;&#x5316;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5C06;&#x7EDF;&#x8BA1;&#x5230;&#x539F;&#x672C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x7684;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x603B;&#x800C;&#x8A00;&#x4E4B;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x5F00;&#x53D1; profiler &#x65F6;&#xFF0C;&#x9700;&#x8981;&#x8FA9;&#x8BC1;&#x5730;&#x770B;&#x5F85;&#x6240;&#x6536;&#x96C6;&#x7684;&#x6570;&#x636E;&#x3002;&#x5B83;&#x4EC5;&#x80FD;&#x8868;&#x793A;&#x5728;&#x88AB;&#x6CE8;&#x5165;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x975E;&#x6CA1;&#x6709;&#x6CE8;&#x5165;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x72B6;&#x6001;&#x3002;</p>
+<h2 id="&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;">&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;</h2>
+<p>&#x8BF4;&#x5230;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#xFF0C;&#x5C31;&#x4E0D;&#x5F97;&#x4E0D;&#x63D0;&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;&#xFF08;Aspect-Oriented Programming&#xFF0C;AOP&#xFF09;&#x3002;&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;&#x7684;&#x6838;&#x5FC3;&#x7406;&#x5FF5;&#x662F;&#x5B9A;&#x4E49;&#x5207;&#x5165;&#x70B9;&#xFF08;pointcut&#xFF09;&#x4EE5;&#x53CA;&#x901A;&#x77E5;&#xFF08;advice&#xFF09;&#x3002;&#x7A0B;&#x5E8F;&#x63A7;&#x5236;&#x6D41;&#x4E2D;&#x6240;&#x6709;&#x5339;&#x914D;&#x8BE5;&#x5207;&#x5165;&#x70B9;&#x7684;&#x8FDE;&#x63A5;&#x70B9;&#xFF08;joinpoint&#xFF09;&#x90FD;&#x5C06;&#x6267;&#x884C;&#x8FD9;&#x6BB5;&#x901A;&#x77E5;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6307;&#x4EE3;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x5165;&#x53E3;&#x7684;&#x5207;&#x5165;&#x70B9;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x5728;&#x8BE5;&#x5207;&#x5165;&#x70B9;&#x6267;&#x884C;&#x7684;&#x201C;&#x6253;&#x5370;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x540D;&#x5B57;&#x201D;&#x8FD9;&#x4E00;&#x901A;&#x77E5;&#x3002;&#x90A3;&#x4E48;&#x6BCF;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x65B9;&#x6CD5;&#x5165;&#x53E3;&#x4FBF;&#x662F;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x70B9;&#x3002;</p>
+<p>&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;&#x7684;&#x5176;&#x4E2D;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4FBF;&#x662F;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#xFF0C;&#x6BD4;&#x5982;<a href="https://www.eclipse.org/aspectj/" target="_blank">AspectJ</a>&#x3002;</p>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x76F8;&#x5F53;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;&#xFF0C;&#x5728;&#x6240;&#x6709;&#x7684;<code>new</code>&#x5B57;&#x8282;&#x7801;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x4E86;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x4E00;&#x6BB5;&#x901A;&#x77E5;&#x4EE3;&#x7801;&#x3002;</p>
+<pre><code>`MyProfiler.fireAllocationEvent(&lt;Target&gt;.class)`
+</code></pre><p>&#x6211;&#x66FE;&#x7ECF;&#x53C2;&#x4E0E;&#x5F00;&#x53D1;&#x8FC7;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x4E86;&#x9762;&#x5411;&#x65B9;&#x9762;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#x7684;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x6846;&#x67B6;<a href="https://disl.ow2.org/" target="_blank">DiSL</a>&#x3002;&#x5B83;&#x652F;&#x6301;&#x7528;&#x6CE8;&#x89E3;&#x6765;&#x5B9A;&#x4E49;&#x5207;&#x5165;&#x70B9;&#xFF0C;&#x7528;&#x666E;&#x901A; Java &#x65B9;&#x6CD5;&#x6765;&#x5B9A;&#x4E49;&#x901A;&#x77E5;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x65B9;&#x6CD5;&#x5165;&#x53E3;&#x5904;&#x6253;&#x5370;&#x6240;&#x5728;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x8868;&#x793A;&#x4E3A;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>@Before(marker = BodyMarker.class)
+static void onMethodEntry(MethodStaticContext msc) {
+  System.out.println(msc.thisMethodFullName());
+}
+</code></pre><p>&#x5982;&#x679C;&#x6709;&#x540C;&#x5B66;&#x5BF9;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x611F;&#x5174;&#x8DA3;&#xFF0C;&#x6216;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x9700;&#x6C42;&#x6216;&#x8005;&#x5EFA;&#x8BAE;&#xFF0C;&#x6B22;&#x8FCE;&#x4F60;&#x5728;&#x7559;&#x8A00;&#x4E2D;&#x63D0;&#x51FA;&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;&#x4E0E;&#x5B9E;&#x8DF5;">&#x603B;&#x7ED3;&#x4E0E;&#x5B9E;&#x8DF5;</h2>
+<p>&#x4ECA;&#x5929;&#x6211;&#x4ECB;&#x7ECD;&#x4E86; Java agent &#x4EE5;&#x53CA;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Java agent &#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x62E6;&#x622A;&#x529F;&#x80FD;&#xFF0C;&#x4FEE;&#x6539;&#x67D0;&#x4E2A;&#x7C7B;&#x6240;&#x5BF9;&#x5E94;&#x7684; byte &#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x4FEE;&#x6539;&#x8FC7;&#x540E;&#x7684; byte &#x6570;&#x7EC4;&#x5B8C;&#x6210;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x3002;</p>
+<p>&#x57FA;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x7684; profiler&#xFF0C;&#x53EF;&#x4EE5;&#x7EDF;&#x8BA1;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x67D0;&#x4E9B;&#x884C;&#x4E3A;&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x6536;&#x96C6; Java &#x6838;&#x5FC3;&#x7C7B;&#x5E93;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#x907F;&#x514D;&#x65E0;&#x9650;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x6765;&#x89E3;&#x51B3;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x6CE8;&#x5165;&#x4F1A;&#x4EA7;&#x751F;&#x89C2;&#x5BDF;&#x8005;&#x6548;&#x5E94;&#xFF0C;&#x56E0;&#x6B64;&#x57FA;&#x4E8E;&#x8BE5;&#x6280;&#x672F;&#x7684; profiler &#x6240;&#x6536;&#x96C6;&#x5230;&#x7684;&#x6570;&#x636E;&#x5E76;&#x4E0D;&#x80FD;&#x53CD;&#x6620;&#x7A0B;&#x5E8F;&#x7684;&#x771F;&#x5B9E;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x3002;&#x5B83;&#x6240;&#x53CD;&#x6620;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x5728;&#x88AB;&#x6CE8;&#x5165;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x6267;&#x884C;&#x72B6;&#x6001;&#x3002;</p>
+<hr>
+<p>&#x4ECA;&#x5929;&#x7684;&#x5B9E;&#x8DF5;&#x73AF;&#x8282;&#xFF0C;&#x8BF7;&#x4F60;&#x601D;&#x8003;&#x5982;&#x4F55;&#x6CE8;&#x5165;&#x65B9;&#x6CD5;&#x51FA;&#x53E3;&#x3002;&#x9664;&#x4E86;&#x6B63;&#x5E38;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x4E4B;&#x5916;&#xFF0C;&#x4F60;&#x8FD8;&#x9700;&#x8003;&#x8651;&#x5F02;&#x5E38;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="32.html" class="navigation navigation-prev " aria-label="Previous page: 32 | JNI的运行机制">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="34.html" class="navigation navigation-next " aria-label="Next page: 34 | Graal：用Java编译Java">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"33 | Java Agent与字节码注入","level":"1.1.35","depth":2,"next":{"title":"34 | Graal：用Java编译Java","level":"1.1.36","depth":2,"path":"doc/34.md","ref":"doc/34.md","articles":[]},"previous":{"title":"32 | JNI的运行机制","level":"1.1.34","depth":2,"path":"doc/32.md","ref":"doc/32.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"doc/33.md","mtime":"2019-03-14T10:20:53.699Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T08:30:49.232Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

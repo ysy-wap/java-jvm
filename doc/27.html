@@ -1,0 +1,1080 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>27 | 注解处理器 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="28.html" />
+    
+    
+    <link rel="prev" href="26.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="00.html">
+            
+                <a href="00.html">
+            
+                    
+                    开篇词 | 为什么我们要学习Java虚拟机？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="01.html">
+            
+                <a href="01.html">
+            
+                    
+                    01 | Java代码是怎么运行的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="02.html">
+            
+                <a href="02.html">
+            
+                    
+                    02 | Java的基本类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="03.html">
+            
+                <a href="03.html">
+            
+                    
+                    03 | Java虚拟机是如何加载Java类的?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="04.html">
+            
+                <a href="04.html">
+            
+                    
+                    04 | JVM是如何执行方法调用的？（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="05.html">
+            
+                <a href="05.html">
+            
+                    
+                    05 | JVM是如何执行方法调用的？（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="06.html">
+            
+                <a href="06.html">
+            
+                    
+                    06 | JVM是如何处理异常的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="06-1.html">
+            
+                <a href="06-1.html">
+            
+                    
+                    【工具篇】 常用工具介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="07.html">
+            
+                <a href="07.html">
+            
+                    
+                    07 | JVM是如何实现反射的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="08.html">
+            
+                <a href="08.html">
+            
+                    
+                    08 | JVM是怎么实现invokedynamic的？（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="09.html">
+            
+                <a href="09.html">
+            
+                    
+                    09 | JVM是怎么实现invokedynamic的？（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10 | Java对象的内存布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    11 | 垃圾回收（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.14" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    12 | 垃圾回收（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.15" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    13 | Java内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.16" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    14 | Java虚拟机是怎么实现synchronized的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.17" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    15 | Java语法糖与Java编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.18" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    16 | 即时编译（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.19" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    17 | 即时编译（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.20" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    18 | 即时编译器的中间表达形式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.21" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    19 | Java字节码（基础篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.22" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    20 | 方法内联（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.23" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    21 | 方法内联（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.24" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    22 | HotSpot虚拟机的intrinsic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.25" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    23 | 逃逸分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.26" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    24 | 字段访问相关优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.27" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    25 | 循环优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.28" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    26 | 向量化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.29" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    27 | 注解处理器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.30" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    28 | 基准测试框架JMH（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.31" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    29 | 基准测试框架JMH（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.32" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    30 | Java虚拟机的监控及诊断工具（命令行篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.33" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    31 | Java虚拟机的监控及诊断工具（GUI篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.34" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    32 | JNI的运行机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.35" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    33 | Java Agent与字节码注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.36" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    34 | Graal：用Java编译Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.37" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    35 | Truffle：语言实现框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.38" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    36 | SubstrateVM：AOT编译框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.39" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    尾声 | 道阻且长，努力加餐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >27 | 注解处理器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="27--&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;">27 | &#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;</h1>
+<p>&#x6CE8;&#x89E3;&#xFF08;annotation&#xFF09;&#x662F; Java 5 &#x5F15;&#x5165;&#x7684;&#xFF0C;&#x7528;&#x6765;&#x4E3A;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x5B57;&#x6BB5;&#x3001;&#x53C2;&#x6570;&#x7B49; Java &#x7ED3;&#x6784;&#x63D0;&#x4F9B;&#x989D;&#x5916;&#x4FE1;&#x606F;&#x7684;&#x673A;&#x5236;&#x3002;&#x6211;&#x5148;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;Java &#x6838;&#x5FC3;&#x7C7B;&#x5E93;&#x4E2D;&#x7684;<code>@Override</code>&#x6CE8;&#x89E3;&#x662F;&#x88AB;&#x7528;&#x6765;&#x58F0;&#x660E;&#x67D0;&#x4E2A;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x91CD;&#x5199;&#x4E86;&#x7236;&#x7C7B;&#x7684;&#x540C;&#x540D;&#x540C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>package java.lang;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Override {
+}
+</code></pre><p><code>@Override</code>&#x6CE8;&#x89E3;&#x672C;&#x8EAB;&#x88AB;&#x53E6;&#x5916;&#x4E24;&#x4E2A;&#x5143;&#x6CE8;&#x89E3;&#xFF08;&#x5373;&#x4F5C;&#x7528;&#x5728;&#x6CE8;&#x89E3;&#x4E0A;&#x7684;&#x6CE8;&#x89E3;&#xFF09;&#x6240;&#x6807;&#x6CE8;&#x3002;&#x5176;&#x4E2D;&#xFF0C;<code>@Target</code>&#x7528;&#x6765;&#x9650;&#x5B9A;&#x76EE;&#x6807;&#x6CE8;&#x89E3;&#x6240;&#x80FD;&#x6807;&#x6CE8;&#x7684; Java &#x7ED3;&#x6784;&#xFF0C;&#x8FD9;&#x91CC;<code>@Override</code>&#x4FBF;&#x53EA;&#x80FD;&#x88AB;&#x7528;&#x6765;&#x6807;&#x6CE8;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><code>@Retention</code>&#x5219;&#x7528;&#x6765;&#x9650;&#x5B9A;&#x5F53;&#x524D;&#x6CE8;&#x89E3;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;&#x6CE8;&#x89E3;&#x5171;&#x6709;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF1A;<code>SOURCE</code>&#xFF0C;<code>CLASS</code>&#x6216;<code>RUNTIME</code>&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;&#x6CE8;&#x89E3;&#x53EA;&#x51FA;&#x73B0;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x53EA;&#x51FA;&#x73B0;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x548C;&#x5B57;&#x8282;&#x7801;&#x4E2D;&#xFF0C;&#x4EE5;&#x53CA;&#x51FA;&#x73B0;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x3001;&#x5B57;&#x8282;&#x7801;&#x548C;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;<code>@Override</code>&#x4FBF;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x3002;&#x4E00;&#x65E6;&#x6807;&#x6CE8;&#x4E86;<code>@Override</code>&#x7684;&#x65B9;&#x6CD5;&#x6240;&#x5728;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x88AB;&#x7F16;&#x8BD1;&#x4E3A;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x8BE5;&#x6CE8;&#x89E3;&#x4FBF;&#x4F1A;&#x88AB;&#x64E6;&#x9664;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4E0D;&#x96BE;&#x731C;&#x5230;&#xFF0C;<code>@Override</code>&#x4EC5;&#x5BF9; Java &#x7F16;&#x8BD1;&#x5668;&#x6709;&#x7528;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x5B83;&#x4F1A;&#x4E3A; Java &#x7F16;&#x8BD1;&#x5668;&#x5F15;&#x5165;&#x4E86;&#x4E00;&#x6761;&#x65B0;&#x7684;&#x7F16;&#x8BD1;&#x89C4;&#x5219;&#xFF0C;&#x5373;&#x5982;&#x679C;&#x6240;&#x6807;&#x6CE8;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x662F; Java &#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x91CD;&#x5199;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x62A5;&#x9519;&#x3002;&#x800C;&#x5F53;&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x4F7F;&#x547D;&#x4E5F;&#x5C31;&#x7ED3;&#x675F;&#x4E86;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;Java &#x7684;&#x6CE8;&#x89E3;&#x673A;&#x5236;&#x5141;&#x8BB8;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;&#x3002;&#x8FD9;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x4E3A; Java &#x7F16;&#x8BD1;&#x5668;&#x6DFB;&#x52A0;&#x7F16;&#x8BD1;&#x89C4;&#x5219;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#x9700;&#x8981;&#x7531;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x63D0;&#x4F9B;&#xFF0C;&#x5E76;&#x4E14;&#x4EE5;&#x63D2;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x63A5;&#x5165; Java &#x7F16;&#x8BD1;&#x5668;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E9B;&#x63D2;&#x4EF6;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#xFF08;annotation processor&#xFF09;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x5F15;&#x5165;&#x65B0;&#x7684;&#x7F16;&#x8BD1;&#x89C4;&#x5219;&#x4E4B;&#x5916;&#xFF0C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x7684; Java &#x6E90;&#x6587;&#x4EF6;&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x751F;&#x6210;&#x65B0;&#x7684; Java &#x6E90;&#x6587;&#x4EF6;&#x3002;&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x5C06;&#x7528;&#x51E0;&#x4E2A;&#x6848;&#x4F8B;&#x6765;&#x8BE6;&#x7EC6;&#x9610;&#x8FF0;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#xFF0C;&#x4EE5;&#x53CA;&#x5B83;&#x80CC;&#x540E;&#x7684;&#x539F;&#x7406;&#x3002;</p>
+<h2 id="&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x539F;&#x7406;">&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x539F;&#x7406;</h2>
+<p>&#x5728;&#x4ECB;&#x7ECD;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B; Java &#x7F16;&#x8BD1;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x3002;</p>
+<p><img src="../image/64e93f67c3b422afd90966bfe9aaf5b8.png" alt="img"></p>
+<p>&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A; &#x51FA;&#x5904; [1]&#xFF0C;Java &#x6E90;&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x53EF;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x5C06;&#x6E90;&#x6587;&#x4EF6;&#x89E3;&#x6790;&#x4E3A;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#xFF1B;</li>
+<li>&#x8C03;&#x7528;&#x5DF2;&#x6CE8;&#x518C;&#x7684;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#xFF1B;</li>
+<li>&#x751F;&#x6210;&#x5B57;&#x8282;&#x7801;&#x3002;</li>
+</ol>
+<p>&#x5982;&#x679C;&#x5728;&#x7B2C; 2 &#x6B65;&#x8C03;&#x7528;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x8FC7;&#x7A0B;&#x4E2D;&#x751F;&#x6210;&#x4E86;&#x65B0;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x91CD;&#x590D;&#x7B2C; 1&#x3001;2 &#x6B65;&#xFF0C;&#x89E3;&#x6790;&#x5E76;&#x4E14;&#x5904;&#x7406;&#x65B0;&#x751F;&#x6210;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x3002;&#x6BCF;&#x6B21;&#x91CD;&#x590D;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;&#x4E00;&#x8F6E;&#xFF08;Round&#xFF09;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x7B2C;&#x4E00;&#x8F6E;&#x89E3;&#x6790;&#x3001;&#x5904;&#x7406;&#x7684;&#x662F;&#x8F93;&#x5165;&#x81F3;&#x7F16;&#x8BD1;&#x5668;&#x4E2D;&#x7684;&#x5DF2;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x751F;&#x6210;&#x4E86;&#x65B0;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x5F00;&#x59CB;&#x7B2C;&#x4E8C;&#x8F6E;&#x3001;&#x7B2C;&#x4E09;&#x8F6E;&#xFF0C;&#x89E3;&#x6790;&#x5E76;&#x4E14;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x65B0;&#x751F;&#x6210;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x3002;&#x5F53;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x4E0D;&#x518D;&#x751F;&#x6210;&#x65B0;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x7F16;&#x8BD1;&#x8FDB;&#x5165;&#x6700;&#x540E;&#x4E00;&#x8F6E;&#xFF0C;&#x5E76;&#x6700;&#x7EC8;&#x8FDB;&#x5165;&#x751F;&#x6210;&#x5B57;&#x8282;&#x7801;&#x7684;&#x7B2C; 3 &#x6B65;&#x3002;</p>
+<pre><code>package foo;
+
+import java.lang.annotation.*;
+
+@Target({ ElementType.TYPE, ElementType.FIELD })
+@Retention(RetentionPolicy.SOURCE)
+public @interface CheckGetter {
+}
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x6CE8;&#x89E3;<code>@CheckGetter</code>&#x3002;&#x5B83;&#x65E2;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6807;&#x6CE8;&#x7C7B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6807;&#x6CE8;&#x5B57;&#x6BB5;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x5B83;&#x548C;<code>@Override</code>&#x76F8;&#x540C;&#xFF0C;&#x5176;&#x751F;&#x547D;&#x5468;&#x671F;&#x88AB;&#x9650;&#x5B9A;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5904;&#x7406;<code>@CheckGetter</code>&#x6CE8;&#x89E3;&#x7684;&#x5904;&#x7406;&#x5668;&#x3002;&#x5B83;&#x5C06;&#x904D;&#x5386;&#x88AB;&#x6807;&#x6CE8;&#x7684;&#x7C7B;&#x4E2D;&#x7684;&#x5B9E;&#x4F8B;&#x5B57;&#x6BB5;&#xFF0C;&#x5E76;&#x68C0;&#x67E5;&#x6709;&#x6CA1;&#x6709;&#x76F8;&#x5E94;&#x7684;<code>getter</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>public interface Processor {
+
+  void init(ProcessingEnvironment processingEnv);
+
+  Set&lt;String&gt; getSupportedAnnotationTypes();
+
+  SourceVersion getSupportedSourceVersion();
+
+  boolean process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment roundEnv);
+
+  ...
+}
+</code></pre><p>&#x6240;&#x6709;&#x7684;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7C7B;&#x90FD;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;<code>Processor</code>&#x3002;&#x8BE5;&#x63A5;&#x53E3;&#x4E3B;&#x8981;&#x6709;&#x56DB;&#x4E2A;&#x91CD;&#x8981;&#x65B9;&#x6CD5;&#x3002;&#x5176;&#x4E2D;&#xFF0C;<code>init</code>&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#x3002;&#x4E4B;&#x6240;&#x4EE5;&#x4E0D;&#x7528;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x5728; Java &#x7F16;&#x8BD1;&#x5668;&#x4E2D;&#xFF0C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x5B9E;&#x4F8B;&#x662F;&#x901A;&#x8FC7;&#x53CD;&#x5C04; API &#x751F;&#x6210;&#x7684;&#x3002;&#x4E5F;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x4F7F;&#x7528;&#x53CD;&#x5C04; API&#xFF0C;&#x6BCF;&#x4E2A;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7C7B;&#x90FD;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65E0;&#x53C2;&#x6570;&#x6784;&#x9020;&#x5668;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x5F53;&#x7F16;&#x5199;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x58F0;&#x660E;&#x4EFB;&#x4F55;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x5E76;&#x4F9D;&#x8D56;&#x4E8E; Java &#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x4E3A;&#x4E4B;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65E0;&#x53C2;&#x6570;&#x6784;&#x9020;&#x5668;&#x3002;&#x800C;&#x5177;&#x4F53;&#x7684;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#xFF0C;&#x5219;&#x653E;&#x5165;<code>init</code>&#x65B9;&#x6CD5;&#x4E4B;&#x4E2D;&#x3002;</p>
+<p>&#x5728;&#x5269;&#x4E0B;&#x7684;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;<code>getSupportedAnnotationTypes</code>&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x6240;&#x652F;&#x6301;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x4E9B;&#x6CE8;&#x89E3;&#x7C7B;&#x578B;&#x53EA;&#x9700;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x5373;&#x53EF;&#x3002;</p>
+<p><code>getSupportedSourceVersion</code>&#x65B9;&#x6CD5;&#x5C06;&#x8FD4;&#x56DE;&#x8BE5;&#x5904;&#x7406;&#x5668;&#x6240;&#x652F;&#x6301;&#x7684; Java &#x7248;&#x672C;&#xFF0C;&#x901A;&#x5E38;&#xFF0C;&#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x9700;&#x8981;&#x4E0E;&#x4F60;&#x7684; Java &#x7F16;&#x8BD1;&#x5668;&#x7248;&#x672C;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF1B;&#x800C;<code>process</code>&#x65B9;&#x6CD5;&#x5219;&#x662F;&#x6700;&#x4E3A;&#x5173;&#x952E;&#x7684;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>JDK &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;<code>Processor</code>&#x63A5;&#x53E3;&#x7684;&#x62BD;&#x8C61;&#x7C7B;<code>AbstractProcessor</code>&#x3002;&#x8BE5;&#x62BD;&#x8C61;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;<code>init</code>&#x3001;<code>getSupportedAnnotationTypes</code>&#x548C;<code>getSupportedSourceVersion</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5B83;&#x7684;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>@SupportedAnnotationTypes</code>&#x548C;<code>@SupportedSourceVersion</code>&#x6CE8;&#x89E3;&#x6765;&#x58F0;&#x660E;&#x6240;&#x652F;&#x6301;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#x578B;&#x4EE5;&#x53CA; Java &#x7248;&#x672C;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4FBF;&#x662F;<code>@CheckGetter</code>&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x7531;&#x4E8E;&#x6211;&#x4F7F;&#x7528;&#x4E86; Java 10 &#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;&#x652F;&#x6301;&#x7248;&#x672C;&#x8BBE;&#x7F6E;&#x4E3A;<code>SourceVersion.RELEASE_10</code>&#x3002;</p>
+<pre><code>package bar;
+
+import java.util.Set;
+
+import javax.annotation.processing.*;
+import javax.lang.model.SourceVersion;
+import javax.lang.model.element.*;
+import javax.lang.model.util.ElementFilter;
+import javax.tools.Diagnostic.Kind;
+
+import foo.CheckGetter;
+
+@SupportedAnnotationTypes(&quot;foo.CheckGetter&quot;)
+@SupportedSourceVersion(SourceVersion.RELEASE_10)
+public class CheckGetterProcessor extends AbstractProcessor {
+
+  @Override
+  public boolean process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment roundEnv) {
+    // TODO: annotated ElementKind.FIELD
+    for (TypeElement annotatedClass : ElementFilter.typesIn(roundEnv.getElementsAnnotatedWith(CheckGetter.class))) {
+      for (VariableElement field : ElementFilter.fieldsIn(annotatedClass.getEnclosedElements())) {
+        if (!containsGetter(annotatedClass, field.getSimpleName().toString())) {
+          processingEnv.getMessager().printMessage(Kind.ERROR,
+              String.format(&quot;getter not found for &apos;%s.%s&apos;.&quot;, annotatedClass.getSimpleName(), field.getSimpleName()));
+        }
+      }
+    }
+    return true;
+  }
+
+  private static boolean containsGetter(TypeElement typeElement, String name) {
+    String getter = &quot;get&quot; + name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+    for (ExecutableElement executableElement : ElementFilter.methodsIn(typeElement.getEnclosedElements())) {
+      if (!executableElement.getModifiers().contains(Modifier.STATIC)
+          &amp;&amp; executableElement.getSimpleName().toString().equals(getter)
+          &amp;&amp; executableElement.getParameters().isEmpty()) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+</code></pre><p>&#x8BE5;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x4EC5;&#x91CD;&#x5199;&#x4E86;<code>process</code>&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5206;&#x522B;&#x4EE3;&#x8868;&#x8BE5;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x6240;&#x80FD;&#x5904;&#x7406;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#x578B;&#xFF0C;&#x4EE5;&#x53CA;&#x56CA;&#x62EC;&#x5F53;&#x524D;&#x8F6E;&#x751F;&#x6210;&#x7684;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#x7684;<code>RoundEnvironment</code>&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x8BE5;&#x5904;&#x7406;&#x5668;&#x9488;&#x5BF9;&#x7684;&#x6CE8;&#x89E3;&#x4EC5;&#x6709;<code>@CheckGetter</code>&#x4E00;&#x4E2A;&#xFF0C;&#x800C;&#x4E14;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x4F1A;&#x8BFB;&#x53D6;&#x6CE8;&#x89E3;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5E76;&#x4E0D;&#x91CD;&#x8981;&#x3002;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E86;</p>
+<pre><code>`roundEnv.getElementsAnnotatedWith(CheckGetter.class)`
+</code></pre><p>&#x6765;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x88AB;<code>@CheckGetter</code>&#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#xFF08;&#x4EE5;&#x53CA;&#x5B57;&#x6BB5;&#xFF09;&#x3002;</p>
+<p><code>process</code>&#x65B9;&#x6CD5;&#x6D89;&#x53CA;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;<code>Element</code>&#xFF0C;&#x5206;&#x522B;&#x6307;&#x4EE3; Java &#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x7ED3;&#x6784;&#x3002;&#x5982;<code>TypeElement</code>&#x6307;&#x4EE3;&#x7C7B;&#x6216;&#x8005;&#x63A5;&#x53E3;&#xFF0C;<code>VariableElement</code>&#x6307;&#x4EE3;&#x5B57;&#x6BB5;&#x3001;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3001;enum &#x5E38;&#x91CF;&#x7B49;&#xFF0C;<code>ExecutableElement</code>&#x6307;&#x4EE3;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x6784;&#x9020;&#x5668;&#x3002;</p>
+<pre><code>package foo;     // PackageElement
+
+class Foo {      // TypeElement
+  int a;           // VariableElement
+  static int b;    // VariableElement
+  Foo () {}        // ExecutableElement
+  void setA (      // ExecutableElement
+    int newA         // VariableElement
+  ) {}
+}
+</code></pre><p>&#x8FD9;&#x4E9B;&#x7ED3;&#x6784;&#x4E4B;&#x95F4;&#x4E5F;&#x6709;&#x4ECE;&#x5C5E;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6240;&#x793A; (&#x51FA;&#x5904; [2]&#xFF09;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>TypeElement.getEnclosedElements</code>&#x65B9;&#x6CD5;&#xFF0C;&#x83B7;&#x5F97;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;<code>Foo</code>&#x7C7B;&#x7684;&#x5B57;&#x6BB5;&#x3001;&#x6784;&#x9020;&#x5668;&#x4EE5;&#x53CA;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>ExecutableElement.getParameters</code>&#x65B9;&#x6CD5;&#xFF0C;&#x83B7;&#x5F97;<code>setA</code>&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x3002;&#x5177;&#x4F53;&#x8FD9;&#x4E9B;<code>Element</code>&#x7C7B;&#x90FD;&#x6709;&#x54EA;&#x4E9B; API&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5B83;&#x4EEC;&#x7684; Javadoc[3]&#x3002;</p>
+<p>&#x5728;&#x5C06;&#x8BE5;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7F16;&#x8BD1;&#x6210; class &#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4FBF;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A; Java &#x7F16;&#x8BD1;&#x5668;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x5E76;&#x7528;&#x6765;&#x5904;&#x7406;&#x5176;&#x4ED6;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x6CE8;&#x518C;&#x7684;&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528; javac &#x547D;&#x4EE4;&#x7684;<code>-processor</code>&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>$ javac -cp /CLASSPATH/TO/CheckGetterProcessor -processor bar.CheckGetterProcessor Foo.java
+error: Class &apos;Foo&apos; is annotated as @CheckGetter, but field &apos;a&apos; is without getter
+1 error
+</code></pre><p>&#x7B2C;&#x4E8C;&#x79CD;&#x5219;&#x662F;&#x5C06;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7F16;&#x8BD1;&#x751F;&#x6210;&#x7684; class &#x6587;&#x4EF6;&#x538B;&#x7F29;&#x5165; jar &#x5305;&#x4E2D;&#xFF0C;&#x5E76;&#x5728; jar &#x5305;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x8BB0;&#x5F55;&#x8BE5;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x7684;&#x5305;&#x540D;&#x53CA;&#x7C7B;&#x540D;&#xFF0C;&#x5373;<code>bar.CheckGetterProcessor</code>&#x3002;</p>
+<pre><code>&#xFF08;&#x5177;&#x4F53;&#x8DEF;&#x5F84;&#x53CA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540D;&#x4E3A;`META-INF/services/javax.annotation.processing.Processor`&#xFF09;
+</code></pre><p>&#x5F53;&#x542F;&#x52A8; Java &#x7F16;&#x8BD1;&#x5668;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x5BFB;&#x627E; classpath &#x8DEF;&#x5F84;&#x4E0A;&#x7684; jar &#x5305;&#x662F;&#x5426;&#x5305;&#x542B;&#x4E0A;&#x8FF0;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5176;&#x4E2D;&#x8BB0;&#x5F55;&#x7684;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x3002;</p>
+<pre><code>$ javac -cp /PATH/TO/CheckGetterProcessor.jar Foo.java
+error: Class &apos;Foo&apos; is annotated as @CheckGetter, but field &apos;a&apos; is without getter
+1 error
+</code></pre><p>&#x6B64;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5728; IDE &#x4E2D;&#x914D;&#x7F6E;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x5C31;&#x4E0D;&#x8FC7;&#x591A;&#x6F14;&#x793A;&#x4E86;&#xFF0C;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x641C;&#x7D22;&#x3002;</p>
+<h2 id="&#x5229;&#x7528;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x751F;&#x6210;&#x6E90;&#x4EE3;&#x7801;">&#x5229;&#x7528;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x751F;&#x6210;&#x6E90;&#x4EE3;&#x7801;</h2>
+<p>&#x524D;&#x9762;&#x63D0;&#x5230;&#xFF0C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x6E90;&#x4EE3;&#x7801;&#x6216;&#x8005;&#x751F;&#x6210;&#x6E90;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x786E;&#x5207;&#x5730;&#x8BF4;&#xFF0C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x5E76;&#x4E0D;&#x80FD;&#x771F;&#x6B63;&#x5730;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x91CC;&#x6307;&#x7684;&#x662F;&#x4FEE;&#x6539;&#x7531; Java &#x6E90;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x7684;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#xFF0C;&#x5728;&#x5176;&#x4E2D;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x6811;&#x8282;&#x70B9;&#x6216;&#x8005;&#x63D2;&#x5165;&#x65B0;&#x7684;&#x6811;&#x8282;&#x70B9;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x751F;&#x6210;&#x7684;&#x5B57;&#x8282;&#x7801;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x5BF9;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#x7684;&#x4FEE;&#x6539;&#x6D89;&#x53CA;&#x4E86; Java &#x7F16;&#x8BD1;&#x5668;&#x7684;&#x5185;&#x90E8; API&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x5F88;&#x53EF;&#x80FD;&#x968F;&#x7740;&#x7248;&#x672C;&#x53D8;&#x66F4;&#x800C;&#x5931;&#x6548;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x5E76;&#x4E0D;&#x63A8;&#x8350;&#x8FD9;&#x79CD;&#x4FEE;&#x6539;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003; [Project Lombok][4]&#x3002;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x81EA;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x6CE8;&#x89E3;&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x6CE8;&#x89E3;&#x7684;&#x5185;&#x5BB9;&#x6765;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x4F8B;&#x5982;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;<code>@Getter</code>&#x548C;<code>@Setter</code>&#x6CE8;&#x89E3;&#xFF0C;&#x80FD;&#x591F;&#x4E3A;&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;<code>getter</code>&#x4EE5;&#x53CA;<code>setter</code>&#x65B9;&#x6CD5;&#x3002;&#x6709;&#x5173;&#x5BF9;&#x4F7F;&#x7528;&#x5185;&#x90E8; API &#x7684;&#x8BA8;&#x8BBA;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x53C2;&#x8003; [&#x8FD9;&#x7BC7;&#x535A;&#x5BA2;][5]&#xFF0C;&#x4EE5;&#x53CA; [Lombok &#x7684;&#x56DE;&#x5E94;][6]&#x3002;</p>
+<p>&#x7528;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x6765;&#x751F;&#x6210;&#x6E90;&#x4EE3;&#x7801;&#x5219;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x4EE5;&#x524D;&#x4ECB;&#x7ECD;&#x8FC7;&#x7684;&#x538B;&#x529B;&#x6D4B;&#x8BD5; jcstress&#xFF0C;&#x4EE5;&#x53CA;&#x63A5;&#x4E0B;&#x6765;&#x5373;&#x5C06;&#x4ECB;&#x7ECD;&#x7684; JMH &#x5DE5;&#x5177;&#xFF0C;&#x90FD;&#x662F;&#x4F9D;&#x8D56;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x7684;&#x3002;</p>
+<pre><code>package foo;
+
+import java.lang.annotation.*;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+public @interface Adapt {
+  Class&lt;?&gt; value();
+}
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x6CE8;&#x89E3;<code>@Adapt</code>&#x3002;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#x5C06;&#x63A5;&#x6536;&#x4E00;&#x4E2A;<code>Class</code>&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;<code>value</code>&#xFF08;&#x5982;&#x679C;&#x6CE8;&#x89E3;&#x7C7B;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>value</code>&#x7684;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7701;&#x7565;<code>value=</code>&#xFF09;&#xFF0C;&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x5982;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6240;&#x793A;&#x3002;</p>
+<pre><code>// Bar.java
+package test;
+import java.util.function.IntBinaryOperator;
+import foo.Adapt;
+
+public class Bar {
+  @Adapt(IntBinaryOperator.class)
+  public static int add(int a, int b) {
+    return a + b;
+  }
+}
+</code></pre><p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5904;&#x7406;<code>@Adapt</code>&#x6CE8;&#x89E3;&#x7684;&#x5904;&#x7406;&#x5668;&#x3002;&#x8BE5;&#x5904;&#x7406;&#x5668;&#x5C06;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x5B9E;&#x73B0;&#x53C2;&#x6570;<code>value</code>&#x6240;&#x6307;&#x5B9A;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4E14;&#x8C03;&#x7528;&#x81F3;&#x88AB;&#x8BE5;&#x6CE8;&#x89E3;&#x6240;&#x6807;&#x6CE8;&#x7684;&#x65B9;&#x6CD5;&#x4E4B;&#x4E2D;&#x3002;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x6BD4;&#x8F83;&#x957F;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F60;&#x5728;<a href="https://time.geekbang.org/column/108" target="_blank">&#x7F51;&#x9875;&#x7AEF;</a>&#x89C2;&#x770B;&#x3002;</p>
+<pre><code>package bar;
+
+import java.io.*;
+import java.util.Set;
+
+import javax.annotation.processing.*;
+import javax.lang.model.SourceVersion;
+import javax.lang.model.element.*;
+import javax.lang.model.type.TypeMirror;
+import javax.lang.model.util.ElementFilter;
+import javax.tools.JavaFileObject;
+
+import javax.tools.Diagnostic.Kind;
+
+@SupportedAnnotationTypes(&quot;foo.Adapt&quot;)
+@SupportedSourceVersion(SourceVersion.RELEASE_10)
+public class AdaptProcessor extends AbstractProcessor {
+
+  @Override
+  public boolean process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment roundEnv) {
+    for (TypeElement annotation : annotations) {
+      if (!&quot;foo.Adapt&quot;.equals(annotation.getQualifiedName().toString())) {
+        continue;
+      }
+
+      ExecutableElement targetAsKey = getExecutable(annotation, &quot;value&quot;);
+
+      for (ExecutableElement annotatedMethod : ElementFilter.methodsIn(roundEnv.getElementsAnnotatedWith(annotation))) {
+        if (!annotatedMethod.getModifiers().contains(Modifier.PUBLIC)) {
+          processingEnv.getMessager().printMessage(Kind.ERROR, &quot;@Adapt on non-public method&quot;);
+          continue;
+        }
+        if (!annotatedMethod.getModifiers().contains(Modifier.STATIC)) {
+          // TODO support non-static methods
+          continue;
+        }
+
+        TypeElement targetInterface = getAnnotationValueAsTypeElement(annotatedMethod, annotation, targetAsKey);
+        if (targetInterface.getKind() != ElementKind.INTERFACE) {
+          processingEnv.getMessager().printMessage(Kind.ERROR, &quot;@Adapt with non-interface input&quot;);
+          continue;
+        }
+
+        TypeElement enclosingType = getTopLevelEnclosingType(annotatedMethod);
+        createAdapter(enclosingType, annotatedMethod, targetInterface);
+      }
+    }
+    return true;
+  }
+
+  private void createAdapter(TypeElement enclosingClass, ExecutableElement annotatedMethod,
+      TypeElement targetInterface) {
+    PackageElement packageElement = (PackageElement) enclosingClass.getEnclosingElement();
+    String packageName = packageElement.getQualifiedName().toString();
+    String className = enclosingClass.getSimpleName().toString();
+    String methodName = annotatedMethod.getSimpleName().toString();
+    String adapterName = className + &quot;_&quot; + methodName + &quot;Adapter&quot;;
+
+    ExecutableElement overriddenMethod = getFirstNonDefaultExecutable(targetInterface);
+
+    try {
+      Filer filer = processingEnv.getFiler();
+      JavaFileObject sourceFile = filer.createSourceFile(packageName + &quot;.&quot; + adapterName, new Element[0]);
+
+      try (PrintWriter out = new PrintWriter(sourceFile.openWriter())) {
+        out.println(&quot;package &quot; + packageName + &quot;;&quot;);
+        out.println(&quot;import &quot; + targetInterface.getQualifiedName() + &quot;;&quot;);
+        out.println();
+        out.println(&quot;public class &quot; + adapterName + &quot; implements &quot; + targetInterface.getSimpleName() + &quot; {&quot;);
+        out.println(&quot;  @Override&quot;);
+        out.println(&quot;  public &quot; + overriddenMethod.getReturnType() + &quot; &quot; + overriddenMethod.getSimpleName()
+            + formatParameter(overriddenMethod, true) + &quot; {&quot;);
+        out.println(&quot;    return &quot; + className + &quot;.&quot; + methodName + formatParameter(overriddenMethod, false) + &quot;;&quot;);
+        out.println(&quot;  }&quot;);
+        out.println(&quot;}&quot;);
+      }
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  private ExecutableElement getExecutable(TypeElement annotation, String methodName) {
+    for (ExecutableElement method : ElementFilter.methodsIn(annotation.getEnclosedElements())) {
+      if (methodName.equals(method.getSimpleName().toString())) {
+        return method;
+      }
+    }
+    processingEnv.getMessager().printMessage(Kind.ERROR, &quot;Incompatible @Adapt.&quot;);
+    return null;
+  }
+
+  private ExecutableElement getFirstNonDefaultExecutable(TypeElement annotation) {
+    for (ExecutableElement method : ElementFilter.methodsIn(annotation.getEnclosedElements())) {
+      if (!method.isDefault()) {
+        return method;
+      }
+    }
+    processingEnv.getMessager().printMessage(Kind.ERROR,
+        &quot;Target interface should declare at least one non-default method.&quot;);
+    return null;
+  }
+
+  private TypeElement getAnnotationValueAsTypeElement(ExecutableElement annotatedMethod, TypeElement annotation,
+      ExecutableElement annotationFunction) {
+    TypeMirror annotationType = annotation.asType();
+
+    for (AnnotationMirror annotationMirror : annotatedMethod.getAnnotationMirrors()) {
+      if (processingEnv.getTypeUtils().isSameType(annotationMirror.getAnnotationType(), annotationType)) {
+        AnnotationValue value = annotationMirror.getElementValues().get(annotationFunction);
+        if (value == null) {
+          processingEnv.getMessager().printMessage(Kind.ERROR, &quot;Unknown @Adapt target&quot;);
+          continue;
+        }
+        TypeMirror targetInterfaceTypeMirror = (TypeMirror) value.getValue();
+        return (TypeElement) processingEnv.getTypeUtils().asElement(targetInterfaceTypeMirror);
+      }
+    }
+    processingEnv.getMessager().printMessage(Kind.ERROR, &quot;@Adapt should contain target()&quot;);
+    return null;
+  }
+
+  private TypeElement getTopLevelEnclosingType(ExecutableElement annotatedMethod) {
+    TypeElement enclosingType = null;
+    Element enclosing = annotatedMethod.getEnclosingElement();
+
+    while (enclosing != null) {
+      if (enclosing.getKind() == ElementKind.CLASS) {
+        enclosingType = (TypeElement) enclosing;
+      } else if (enclosing.getKind() == ElementKind.PACKAGE) {
+        break;
+      }
+      enclosing = enclosing.getEnclosingElement();
+    }
+    return enclosingType;
+  }
+
+  private String formatParameter(ExecutableElement method, boolean includeType) {
+    StringBuilder builder = new StringBuilder();
+    builder.append(&apos;(&apos;);
+    String separator = &quot;&quot;;
+
+    for (VariableElement parameter : method.getParameters()) {
+      builder.append(separator);
+      if (includeType) {
+        builder.append(parameter.asType());
+        builder.append(&apos; &apos;);
+      }
+      builder.append(parameter.getSimpleName());
+      separator = &quot;, &quot;;
+    }
+    builder.append(&apos;)&apos;);
+    return builder.toString();
+  }
+}
+</code></pre><p>&#x5728;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8BFB;&#x53D6;&#x6CE8;&#x89E3;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x5C06;&#x4F7F;&#x7528;<code>process</code>&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x5B83;&#x83B7;&#x5F97;&#x88AB;&#x6807;&#x6CE8;&#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x7684;<code>@Adapt</code>&#x6CE8;&#x89E3;&#x4E2D;&#x7684;<code>value</code>&#x503C;&#x3002;</p>
+<p>&#x4E4B;&#x6240;&#x4EE5;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x9EBB;&#x70E6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;<code>value</code>&#x503C;&#x5C5E;&#x4E8E;<code>Class</code>&#x7C7B;&#x578B;&#x3002;&#x5728;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x88AB;&#x7F16;&#x8BD1;&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>Class</code>&#x5E38;&#x91CF;&#x672A;&#x5FC5;&#x88AB;&#x52A0;&#x8F7D;&#x8FDB; Java &#x7F16;&#x8BD1;&#x5668;&#x6240;&#x5728;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>process</code>&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x83B7;&#x5F97;<code>value</code>&#x6240;&#x6307;&#x5411;&#x7684;&#x63A5;&#x53E3;&#x7684;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#xFF0C;&#x5E76;&#x636E;&#x6B64;&#x751F;&#x6210;&#x6E90;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x751F;&#x6210;&#x6E90;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x9645;&#x4E0A;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>Filer.createSourceFile</code>&#x65B9;&#x6CD5;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E;&#x6587;&#x4EF6;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;<code>PrintWriter</code>&#x5C06;&#x5177;&#x4F53;&#x7684;&#x5185;&#x5BB9;&#x4E00;&#x4E00;&#x5199;&#x5165;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5F53;&#x5C06;&#x8BE5;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x4F5C;&#x4E3A;&#x63D2;&#x4EF6;&#x63A5;&#x5165; Java &#x7F16;&#x8BD1;&#x5668;&#x65F6;&#xFF0C;&#x7F16;&#x8BD1;&#x524D;&#x9762;&#x7684;<code>test/Bar.java</code>&#x5C06;&#x751F;&#x6210;&#x4E0B;&#x8FF0;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x89E6;&#x53D1;&#x65B0;&#x4E00;&#x8F6E;&#x7684;&#x7F16;&#x8BD1;&#x3002;</p>
+<pre><code>package test;
+import java.util.function.IntBinaryOperator;
+
+public class Bar_addAdapter implements IntBinaryOperator {
+  @Override
+  public int applyAsInt(int arg0, int arg1) {
+    return Bar.add(arg0, arg1);
+  }
+}
+</code></pre><blockquote>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x6CA1;&#x6709;&#x5904;&#x7406;&#x6240;&#x7F16;&#x8BD1;&#x7684;&#x4EE3;&#x7801;&#x5305;&#x540D;&#x4E3A;&#x7A7A;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+</blockquote>
+<h2 id="&#x603B;&#x7ED3;&#x4E0E;&#x5B9E;&#x8DF5;">&#x603B;&#x7ED3;&#x4E0E;&#x5B9E;&#x8DF5;</h2>
+<p>&#x4ECA;&#x5929;&#x6211;&#x4ECB;&#x7ECD;&#x4E86; Java &#x7F16;&#x8BD1;&#x5668;&#x7684;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x3002;</p>
+<p>&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x4E2A;&#x7528;&#x9014;&#x3002;&#x4E00;&#x662F;&#x5B9A;&#x4E49;&#x7F16;&#x8BD1;&#x89C4;&#x5219;&#xFF0C;&#x5E76;&#x68C0;&#x67E5;&#x88AB;&#x7F16;&#x8BD1;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x3002;&#x4E8C;&#x662F;&#x4FEE;&#x6539;&#x5DF2;&#x6709;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x4E09;&#x662F;&#x751F;&#x6210;&#x65B0;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x6D89;&#x53CA;&#x4E86; Java &#x7F16;&#x8BD1;&#x5668;&#x7684;&#x5185;&#x90E8; API&#xFF0C;&#x56E0;&#x6B64;&#x5E76;&#x4E0D;&#x63A8;&#x8350;&#x3002;&#x7B2C;&#x4E09;&#x79CD;&#x8F83;&#x4E3A;&#x5E38;&#x89C1;&#xFF0C;&#x662F; OpenJDK &#x5DE5;&#x5177; jcstress&#xFF0C;&#x4EE5;&#x53CA; JMH &#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>Java &#x6E90;&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x53EF;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#x89E3;&#x6790;&#x6E90;&#x6587;&#x4EF6;&#x751F;&#x6210;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#xFF0C;&#x8C03;&#x7528;&#x5DF2;&#x6CE8;&#x518C;&#x7684;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#xFF0C;&#x548C;&#x751F;&#x6210;&#x5B57;&#x8282;&#x7801;&#x3002;&#x5982;&#x679C;&#x5728;&#x7B2C; 2 &#x6B65;&#x4E2D;&#xFF0C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x751F;&#x6210;&#x4E86;&#x65B0;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x90A3;&#x4E48; Java &#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x91CD;&#x590D;&#x7B2C; 1&#x3001;2 &#x6B65;&#xFF0C;&#x76F4;&#x81F3;&#x4E0D;&#x518D;&#x751F;&#x6210;&#x65B0;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x3002;</p>
+<hr>
+<p>&#x4ECA;&#x5929;&#x7684;&#x5B9E;&#x8DF5;&#x73AF;&#x8282;&#xFF0C;&#x8BF7;&#x5B9E;&#x73B0;&#x672C;&#x6587;&#x7684;&#x6848;&#x4F8B;<code>CheckGetterProcessor</code>&#x4E2D;&#x7684; TODO &#x9879;&#xFF0C;&#x5904;&#x7406;&#x7531;<code>@CheckGetter</code>&#x6CE8;&#x89E3;&#x7684;&#x5B57;&#x6BB5;&#x3002;</p>
+<p>[1] <a href="http://openjdk.java.net/groups/compiler/doc/compilation-overview/index.html" target="_blank">http://openjdk.java.net/groups/compiler/doc/compilation-overview/index.html</a>
+[2] <a href="http://hannesdorfmann.com/annotation-processing/annotationprocessing101" target="_blank">http://hannesdorfmann.com/annotation-processing/annotationprocessing101</a>
+[3] <a href="https://docs.oracle.com/javase/10/docs/api/javax/lang/model/element/package-summary.html" target="_blank">https://docs.oracle.com/javase/10/docs/api/javax/lang/model/element/package-summary.html</a>
+[4] <a href="https://projectlombok.org/" target="_blank">https://projectlombok.org/</a>
+[5] <a href="http://notatube.blogspot.com/2010/11/project-lombok-trick-explained.html" target="_blank">http://notatube.blogspot.com/2010/11/project-lombok-trick-explained.html</a>
+[6] <a href="http://jnb.ociweb.com/jnb/jnbJan2010.html#controversy" target="_blank">http://jnb.ociweb.com/jnb/jnbJan2010.html#controversy</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="26.html" class="navigation navigation-prev " aria-label="Previous page: 26 | 向量化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="28.html" class="navigation navigation-next " aria-label="Next page: 28 | 基准测试框架JMH（上）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"27 | 注解处理器","level":"1.1.29","depth":2,"next":{"title":"28 | 基准测试框架JMH（上）","level":"1.1.30","depth":2,"path":"doc/28.md","ref":"doc/28.md","articles":[]},"previous":{"title":"26 | 向量化","level":"1.1.28","depth":2,"path":"doc/26.md","ref":"doc/26.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"doc/27.md","mtime":"2019-03-14T10:20:53.658Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T08:30:49.232Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

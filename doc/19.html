@@ -1,0 +1,899 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>19 | Java字节码（基础篇） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="20.html" />
+    
+    
+    <link rel="prev" href="18.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="00.html">
+            
+                <a href="00.html">
+            
+                    
+                    开篇词 | 为什么我们要学习Java虚拟机？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="01.html">
+            
+                <a href="01.html">
+            
+                    
+                    01 | Java代码是怎么运行的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="02.html">
+            
+                <a href="02.html">
+            
+                    
+                    02 | Java的基本类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="03.html">
+            
+                <a href="03.html">
+            
+                    
+                    03 | Java虚拟机是如何加载Java类的?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="04.html">
+            
+                <a href="04.html">
+            
+                    
+                    04 | JVM是如何执行方法调用的？（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="05.html">
+            
+                <a href="05.html">
+            
+                    
+                    05 | JVM是如何执行方法调用的？（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="06.html">
+            
+                <a href="06.html">
+            
+                    
+                    06 | JVM是如何处理异常的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="06-1.html">
+            
+                <a href="06-1.html">
+            
+                    
+                    【工具篇】 常用工具介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="07.html">
+            
+                <a href="07.html">
+            
+                    
+                    07 | JVM是如何实现反射的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="08.html">
+            
+                <a href="08.html">
+            
+                    
+                    08 | JVM是怎么实现invokedynamic的？（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="09.html">
+            
+                <a href="09.html">
+            
+                    
+                    09 | JVM是怎么实现invokedynamic的？（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10 | Java对象的内存布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    11 | 垃圾回收（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.14" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    12 | 垃圾回收（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.15" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    13 | Java内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.16" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    14 | Java虚拟机是怎么实现synchronized的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.17" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    15 | Java语法糖与Java编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.18" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    16 | 即时编译（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.19" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    17 | 即时编译（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.20" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    18 | 即时编译器的中间表达形式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.21" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    19 | Java字节码（基础篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.22" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    20 | 方法内联（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.23" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    21 | 方法内联（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.24" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    22 | HotSpot虚拟机的intrinsic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.25" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    23 | 逃逸分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.26" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    24 | 字段访问相关优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.27" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    25 | 循环优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.28" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    26 | 向量化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.29" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    27 | 注解处理器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.30" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    28 | 基准测试框架JMH（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.31" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    29 | 基准测试框架JMH（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.32" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    30 | Java虚拟机的监控及诊断工具（命令行篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.33" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    31 | Java虚拟机的监控及诊断工具（GUI篇）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.34" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    32 | JNI的运行机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.35" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    33 | Java Agent与字节码注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.36" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    34 | Graal：用Java编译Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.37" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    35 | Truffle：语言实现框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.38" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    36 | SubstrateVM：AOT编译框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.39" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    尾声 | 道阻且长，努力加餐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >19 | Java字节码（基础篇）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="19--java&#x5B57;&#x8282;&#x7801;&#xFF08;&#x57FA;&#x7840;&#x7BC7;&#xFF09;">19 | Java&#x5B57;&#x8282;&#x7801;&#xFF08;&#x57FA;&#x7840;&#x7BC7;&#xFF09;</h1>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x7BC7;&#x7AE0;&#x4E2D;&#xFF0C;&#x6709;&#x4E0D;&#x5C11;&#x540C;&#x5B66;&#x53CD;&#x9988;&#x5BF9; Java &#x5B57;&#x8282;&#x7801;&#x5E76;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x719F;&#x6089;&#x3002;&#x90A3;&#x4E48;&#x4ECA;&#x5929;&#x6211;&#x4FBF;&#x6765;&#x7CFB;&#x7EDF;&#x6027;&#x5730;&#x4ECB;&#x7ECD;&#x4E00;&#x904D; Java &#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<h2 id="&#x64CD;&#x4F5C;&#x6570;&#x6808;">&#x64CD;&#x4F5C;&#x6570;&#x6808;</h2>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;Java &#x5B57;&#x8282;&#x7801;&#x662F; Java &#x865A;&#x62DF;&#x673A;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x96C6;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5B83;&#x4E0E; Java &#x865A;&#x62DF;&#x673A;&#x57FA;&#x4E8E;&#x6808;&#x7684;&#x8BA1;&#x7B97;&#x6A21;&#x578B;&#x662F;&#x5BC6;&#x4E0D;&#x53EF;&#x5206;&#x7684;&#x3002;</p>
+<p>&#x5728;&#x89E3;&#x91CA;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6BCF;&#x5F53;&#x4E3A; Java &#x65B9;&#x6CD5;&#x5206;&#x914D;&#x6808;&#x6862;&#x65F6;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x5F80;&#x5F80;&#x9700;&#x8981;&#x5F00;&#x8F9F;&#x4E00;&#x5757;&#x989D;&#x5916;&#x7684;&#x7A7A;&#x95F4;&#x4F5C;&#x4E3A;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#xFF0C;&#x6765;&#x5B58;&#x653E;&#x8BA1;&#x7B97;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x4EE5;&#x53CA;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x6765;&#x8BF4;&#x4FBF;&#x662F;&#xFF1A;&#x6267;&#x884C;&#x6BCF;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x4E4B;&#x524D;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x8981;&#x6C42;&#x8BE5;&#x6307;&#x4EE4;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x5DF2;&#x88AB;&#x538B;&#x5165;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E2D;&#x3002;&#x5728;&#x6267;&#x884C;&#x6307;&#x4EE4;&#x65F6;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x4F1A;&#x5C06;&#x8BE5;&#x6307;&#x4EE4;&#x6240;&#x9700;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x5F39;&#x51FA;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x6307;&#x4EE4;&#x7684;&#x7ED3;&#x679C;&#x91CD;&#x65B0;&#x538B;&#x5165;&#x6808;&#x4E2D;&#x3002;</p>
+<p><img src="../image/13720f6eb83d096ec600309648330821.png" alt="img"></p>
+<p>&#x4EE5;&#x52A0;&#x6CD5;&#x6307;&#x4EE4; iadd &#x4E3A;&#x4F8B;&#x3002;&#x5047;&#x8BBE;&#x5728;&#x6267;&#x884C;&#x8BE5;&#x6307;&#x4EE4;&#x524D;&#xFF0C;&#x6808;&#x9876;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x5206;&#x522B;&#x4E3A; int &#x503C; 1 &#x548C; int &#x503C; 2&#xFF0C;&#x90A3;&#x4E48; iadd &#x6307;&#x4EE4;&#x5C06;&#x5F39;&#x51FA;&#x8FD9;&#x4E24;&#x4E2A; int&#xFF0C;&#x5E76;&#x5C06;&#x6C42;&#x5F97;&#x7684;&#x548C; int &#x503C; 3 &#x538B;&#x5165;&#x6808;&#x4E2D;&#x3002;</p>
+<p><img src="../image/138c20e60c081c8698770ff8d5d93fdb.png" alt="img"></p>
+<p>&#x7531;&#x4E8E; iadd &#x6307;&#x4EE4;&#x53EA;&#x6D88;&#x8017;&#x6808;&#x9876;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5BF9;&#x4E8E;&#x79BB;&#x6808;&#x9876;&#x8DDD;&#x79BB;&#x4E3A; 2 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#x56FE;&#x4E2D;&#x7684;&#x95EE;&#x53F7;&#xFF0C;iadd &#x6307;&#x4EE4;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#x5B83;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x66F4;&#x52A0;&#x4E0D;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;</p>
+<p>Java &#x5B57;&#x8282;&#x7801;&#x4E2D;&#x6709;&#x597D;&#x51E0;&#x6761;&#x6307;&#x4EE4;&#x662F;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x5728;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E0A;&#x7684;&#x3002;&#x6700;&#x4E3A;&#x5E38;&#x89C1;&#x7684;&#x4FBF;&#x662F; dup&#xFF1A; &#x590D;&#x5236;&#x6808;&#x9876;&#x5143;&#x7D20;&#xFF0C;&#x4EE5;&#x53CA; pop&#xFF1A;&#x820D;&#x5F03;&#x6808;&#x9876;&#x5143;&#x7D20;&#x3002;</p>
+<p>dup &#x6307;&#x4EE4;&#x5E38;&#x7528;&#x4E8E;&#x590D;&#x5236; new &#x6307;&#x4EE4;&#x6240;&#x751F;&#x6210;&#x7684;&#x672A;&#x7ECF;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5F15;&#x7528;&#x3002;&#x4F8B;&#x5982;&#x5728;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684; foo &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5F53;&#x6267;&#x884C; new &#x6307;&#x4EE4;&#x65F6;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x5C06;&#x6307;&#x5411;&#x4E00;&#x5757;&#x5DF2;&#x5206;&#x914D;&#x7684;&#x3001;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5185;&#x5B58;&#x7684;&#x5F15;&#x7528;&#x538B;&#x5165;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E2D;&#x3002;</p>
+<pre><code>  public void foo() {
+    Object o = new Object();
+  }
+  // &#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+  public void foo();
+    0  new java.lang.Object [3]
+    3  dup
+    4  invokespecial java.lang.Object() [8]
+    7  astore_1 [o]
+    8  return
+</code></pre><p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4EE5;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#x4E3A;&#x8C03;&#x7528;&#x8005;&#xFF0C;&#x8C03;&#x7528;&#x5176;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x5B57;&#x8282;&#x7801;&#x4E2D;&#x7684; invokespecial &#x6307;&#x4EE4;&#x3002;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x6307;&#x4EE4;&#x5C06;&#x6D88;&#x8017;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E0A;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4F5C;&#x4E3A;&#x5B83;&#x7684;&#x8C03;&#x7528;&#x8005;&#x4EE5;&#x53CA;&#x53C2;&#x6570;&#xFF08;&#x4E0D;&#x8FC7; Object &#x7684;&#x6784;&#x9020;&#x5668;&#x4E0D;&#x9700;&#x8981;&#x53C2;&#x6570;&#xFF09;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5229;&#x7528; dup &#x6307;&#x4EE4;&#x590D;&#x5236;&#x4E00;&#x4EFD; new &#x6307;&#x4EE4;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5E76;&#x7528;&#x6765;&#x8C03;&#x7528;&#x6784;&#x9020;&#x5668;&#x3002;&#x5F53;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x4E4B;&#x540E;&#xFF0C;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E0A;&#x4ECD;&#x6709;&#x539F;&#x672C;&#x7531; new &#x6307;&#x4EE4;&#x751F;&#x6210;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x5373;&#x504F;&#x79FB;&#x91CF;&#x4E3A; 7 &#x7684;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x4E0B;&#x9762;&#x4F1A;&#x4ECB;&#x7ECD;&#x5230;&#xFF09;&#x3002;</p>
+<p>pop &#x6307;&#x4EE4;&#x5219;&#x5E38;&#x7528;&#x4E8E;&#x820D;&#x5F03;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;&#x4F8B;&#x5982;&#x5728;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684; foo &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x8C03;&#x7528;&#x9759;&#x6001;&#x65B9;&#x6CD5; bar&#xFF0C;&#x4F46;&#x662F;&#x5374;&#x4E0D;&#x7528;&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x5BF9;&#x5E94;&#x7684; invokestatic &#x6307;&#x4EE4;&#x4ECD;&#x65E7;&#x4F1A;&#x5C06;&#x8FD4;&#x56DE;&#x503C;&#x538B;&#x5165; foo &#x65B9;&#x6CD5;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64; Java &#x865A;&#x62DF;&#x673A;&#x9700;&#x8981;&#x989D;&#x5916;&#x6267;&#x884C; pop &#x6307;&#x4EE4;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x503C;&#x820D;&#x5F03;&#x3002;</p>
+<pre><code>  public static boolean bar() {
+    return false;
+  }
+
+  public void foo() {
+    bar();
+  }
+  // foo &#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+  public void foo();
+    0  invokestatic FooTest.bar() : boolean [24]
+    3  pop
+    4  return
+</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4E0A;&#x8FF0;&#x4E24;&#x6761;&#x6307;&#x4EE4;&#x53EA;&#x80FD;&#x5904;&#x7406;&#x975E; long &#x6216;&#x8005;&#x975E; double &#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A; long &#x7C7B;&#x578B;&#x6216;&#x8005; double &#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF0C;&#x9700;&#x8981;&#x5360;&#x636E;&#x4E24;&#x4E2A;&#x6808;&#x5355;&#x5143;&#x3002;&#x5F53;&#x9047;&#x5230;&#x8FD9;&#x4E9B;&#x503C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x540C;&#x65F6;&#x590D;&#x5236;&#x6808;&#x9876;&#x4E24;&#x4E2A;&#x5355;&#x5143;&#x7684; dup2 &#x6307;&#x4EE4;&#xFF0C;&#x4EE5;&#x53CA;&#x5F39;&#x51FA;&#x6808;&#x9876;&#x4E24;&#x4E2A;&#x5355;&#x5143;&#x7684; pop2 &#x6307;&#x4EE4;&#x3002;</p>
+<p>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x4E0D;&#x7B97;&#x5E38;&#x89C1;&#x4F46;&#x4E5F;&#x662F;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x4E8E;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x8FD8;&#x6709; swap &#x6307;&#x4EE4;&#xFF0C;&#x5B83;&#x5C06;&#x4EA4;&#x6362;&#x6808;&#x9876;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x5728; Java &#x5B57;&#x8282;&#x7801;&#x4E2D;&#xFF0C;&#x6709;&#x4E00;&#x90E8;&#x5206;&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5C06;&#x5E38;&#x91CF;&#x52A0;&#x8F7D;&#x5230;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E0A;&#x3002;&#x4EE5; int &#x7C7B;&#x578B;&#x4E3A;&#x4F8B;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x65E2;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; iconst &#x6307;&#x4EE4;&#x52A0;&#x8F7D; -1 &#x81F3; 5 &#x4E4B;&#x95F4;&#x7684; int &#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; bipush&#x3001;sipush &#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x3001;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x6240;&#x80FD;&#x4EE3;&#x8868;&#x7684; int &#x503C;&#x3002;</p>
+<p>Java &#x865A;&#x62DF;&#x673A;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; ldc &#x52A0;&#x8F7D;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5E38;&#x91CF;&#x503C;&#xFF0C;&#x4F8B;&#x5982; ldc #18 &#x5C06;&#x52A0;&#x8F7D;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x7B2C; 18 &#x9879;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x5E38;&#x91CF;&#x5305;&#x62EC; int &#x7C7B;&#x578B;&#x3001;long &#x7C7B;&#x578B;&#x3001;float &#x7C7B;&#x578B;&#x3001;double &#x7C7B;&#x578B;&#x3001;String &#x7C7B;&#x578B;&#x4EE5;&#x53CA; Class &#x7C7B;&#x578B;&#x7684;&#x5E38;&#x91CF;&#x3002;</p>
+<p><img src="../image/0dfbecf954660bcdc76eac65beac1e8f.jpg" alt="img"></p>
+<p><strong>&#x5E38;&#x6570;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#x8868;</strong></p>
+<p>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x538B;&#x5165;&#x5F39;&#x51FA;&#x90FD;&#x662F;&#x4E00;&#x6761;&#x6761;&#x6307;&#x4EE4;&#x5B8C;&#x6210;&#x7684;&#x3002;&#x552F;&#x4E00;&#x7684;&#x4F8B;&#x5916;&#x60C5;&#x51B5;&#x662F;&#x5728;&#x629B;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x4F1A;&#x6E05;&#x9664;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E0A;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;&#xFF0C;&#x800C;&#x540E;&#x5C06;&#x5F02;&#x5E38;&#x5B9E;&#x4F8B;&#x538B;&#x5165;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E0A;&#x3002;</p>
+<h2 id="&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;">&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;</h2>
+<p>Java &#x65B9;&#x6CD5;&#x6808;&#x6862;&#x7684;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#x5219;&#x662F;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#xFF0C;&#x5B57;&#x8282;&#x7801;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x5C06;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x7F13;&#x5B58;&#x5728;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x4E4B;&#x4E2D;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;Java &#x865A;&#x62DF;&#x673A;&#x5C06;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x5F53;&#x6210;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x4F9D;&#x6B21;&#x5B58;&#x653E; this &#x6307;&#x9488;&#xFF08;&#x4EC5;&#x975E;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x6240;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4EE5;&#x53CA;&#x5B57;&#x8282;&#x7801;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E00;&#x6837;&#xFF0C;long &#x7C7B;&#x578B;&#x4EE5;&#x53CA; double &#x7C7B;&#x578B;&#x7684;&#x503C;&#x5C06;&#x5360;&#x636E;&#x4E24;&#x4E2A;&#x5355;&#x5143;&#xFF0C;&#x5176;&#x4F59;&#x7C7B;&#x578B;&#x4EC5;&#x5360;&#x636E;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x3002;</p>
+<pre><code>public void foo(long l, float f) {
+  {
+    int i = 0;
+  }
+  {
+    String s = &quot;Hello, World&quot;;
+  }
+}
+</code></pre><p>&#x4EE5;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E2D;&#x7684; foo &#x65B9;&#x6CD5;&#x4E3A;&#x4F8B;&#xFF0C;&#x7531;&#x4E8E;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7684;&#x7B2C; 0 &#x4E2A;&#x5355;&#x5143;&#x5B58;&#x653E;&#x7740; this &#x6307;&#x9488;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A; long &#x7C7B;&#x578B;&#xFF0C;&#x4E8E;&#x662F;&#x6570;&#x7EC4;&#x7684; 1&#x3001;2 &#x4E24;&#x4E2A;&#x5355;&#x5143;&#x5B58;&#x653E;&#x7740;&#x6240;&#x4F20;&#x5165;&#x7684; long &#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5219;&#x662F; float &#x7C7B;&#x578B;&#xFF0C;&#x4E8E;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x7B2C; 3 &#x4E2A;&#x5355;&#x5143;&#x5B58;&#x653E;&#x7740;&#x6240;&#x4F20;&#x5165;&#x7684; float &#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;</p>
+<p><img src="../image/228d0f5f2d6437e7aca87c6df2d01bd9.png" alt="img"></p>
+<p>&#x5728;&#x65B9;&#x6CD5;&#x4F53;&#x91CC;&#x7684;&#x4E24;&#x4E2A;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#xFF0C;&#x6211;&#x5206;&#x522B;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF; i &#x548C; s&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x4E24;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x6CA1;&#x6709;&#x91CD;&#x5408;&#x4E4B;&#x5904;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;Java &#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x4EEC;&#x7F16;&#x6392;&#x81F3;&#x540C;&#x4E00;&#x5355;&#x5143;&#x4E2D;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7684;&#x7B2C; 4 &#x4E2A;&#x5355;&#x5143;&#x5C06;&#x4E3A; i &#x6216;&#x8005; s&#x3002;</p>
+<p>&#x5B58;&#x50A8;&#x5728;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x7684;&#x503C;&#xFF0C;&#x901A;&#x5E38;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x81F3;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E2D;&#xFF0C;&#x65B9;&#x80FD;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x5F97;&#x5230;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x540E;&#x518D;&#x5B58;&#x50A8;&#x81F3;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x4E2D;&#x3002;&#x8FD9;&#x4E9B;&#x52A0;&#x8F7D;&#x3001;&#x5B58;&#x50A8;&#x6307;&#x4EE4;&#x662F;&#x533A;&#x5206;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;int &#x7C7B;&#x578B;&#x7684;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#x4E3A; iload&#xFF0C;&#x5B58;&#x50A8;&#x6307;&#x4EE4;&#x4E3A; istore&#x3002;</p>
+<p><img src="../image/83ece83ecd260c2eda282747467e49f9.jpg" alt="img">
+<strong>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x8BBF;&#x95EE;&#x6307;&#x4EE4;&#x8868;</strong></p>
+<p>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7684;&#x52A0;&#x8F7D;&#x3001;&#x5B58;&#x50A8;&#x6307;&#x4EE4;&#x90FD;&#x9700;&#x8981;&#x6307;&#x660E;&#x6240;&#x52A0;&#x8F7D;&#x5355;&#x5143;&#x7684;&#x4E0B;&#x6807;&#x3002;&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#xFF0C;aload 0 &#x6307;&#x7684;&#x662F;&#x52A0;&#x8F7D;&#x7B2C; 0 &#x4E2A;&#x5355;&#x5143;&#x6240;&#x5B58;&#x50A8;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5728;&#x524D;&#x9762;&#x793A;&#x4F8B;&#x4E2D;&#x7684; foo &#x65B9;&#x6CD5;&#x91CC;&#x6307;&#x7684;&#x4FBF;&#x662F;&#x52A0;&#x8F7D; this &#x6307;&#x9488;&#x3002;</p>
+<p>&#x5728;&#x6211;&#x5370;&#x8C61;&#x4E2D;&#xFF0C;Java &#x5B57;&#x8282;&#x7801;&#x4E2D;&#x552F;&#x4E00;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x4E8E;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x7684;&#x6307;&#x4EE4;&#x662F; iinc M N&#xFF08;M &#x4E3A;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF0C;N &#x4E3A;&#x6574;&#x6570;&#xFF09;&#x3002;&#x8BE5;&#x6307;&#x4EE4;&#x6307;&#x7684;&#x662F;&#x5C06;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7684;&#x7B2C; M &#x4E2A;&#x5355;&#x5143;&#x4E2D;&#x7684; int &#x503C;&#x589E;&#x52A0; N&#xFF0C;&#x5E38;&#x7528;&#x4E8E; for &#x5FAA;&#x73AF;&#x4E2D;&#x81EA;&#x589E;&#x91CF;&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<pre><code>  public void foo() {
+    for (int i = 100; i&gt;=0; i--) {}
+  }
+  // &#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+  public void foo();
+     0  bipush 100
+     2  istore_1 [i]
+     3  goto 9
+     6  iinc 1 -1 [i] // i--
+     9  iload_1 [i]
+    10  ifge 6
+    13  return
+</code></pre><h2 id="&#x7EFC;&#x5408;&#x793A;&#x4F8B;">&#x7EFC;&#x5408;&#x793A;&#x4F8B;</h2>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x7EFC;&#x5408;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>public static int bar(int i) {
+  return ((i + 1) - 2) * 3 / 4;
+}
+// &#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+Code:
+  stack=2, locals=1, args_size=1
+     0: iload_0
+     1: iconst_1
+     2: iadd
+     3: iconst_2
+     4: isub
+     5: iconst_3
+     6: imul
+     7: iconst_4
+     8: idiv
+     9: ireturn
+</code></pre><p>&#x8FD9;&#x91CC;&#x6211;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; bar &#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x5C06;&#x63A5;&#x6536;&#x4E00;&#x4E2A; int &#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x8BA1;&#x7B97;&#x4E4B;&#x540E;&#x518D;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x4E2D;&#x7684; stack=2, locals=1 &#x4EE3;&#x8868;&#x8BE5;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7A7A;&#x95F4;&#x4E3A; 2&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7A7A;&#x95F4;&#x4E3A; 1&#x3002;&#x5F53;&#x8C03;&#x7528; bar(5) &#x65F6;&#xFF0C;&#x6BCF;&#x6761;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x524D;&#x540E;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7A7A;&#x95F4;&#x4EE5;&#x53CA;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x5206;&#x5E03;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="../image/c57cb9c2222f0f79459bf4c58e1a4c32.png" alt="img"></p>
+<h2 id="java-&#x5B57;&#x8282;&#x7801;&#x7B80;&#x4ECB;">Java &#x5B57;&#x8282;&#x7801;&#x7B80;&#x4ECB;</h2>
+<p>&#x524D;&#x9762;&#x6211;&#x5DF2;&#x7ECF;&#x4ECB;&#x7ECD;&#x4E86;&#x52A0;&#x8F7D;&#x5E38;&#x91CF;&#x6307;&#x4EE4;&#x3001;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E13;&#x7528;&#x6307;&#x4EE4;&#x4EE5;&#x53CA;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x8BBF;&#x95EE;&#x6307;&#x4EE4;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5176;&#x4ED6;&#x7684;&#x7C7B;&#x522B;&#x3002;</p>
+<p>Java &#x76F8;&#x5173;&#x6307;&#x4EE4;&#xFF0C;&#x5305;&#x62EC;&#x5404;&#x7C7B;&#x5177;&#x5907;&#x9AD8;&#x5C42;&#x8BED;&#x4E49;&#x7684;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x5373; new&#xFF08;&#x540E;&#x8DDF;&#x76EE;&#x6807;&#x7C7B;&#xFF0C;&#x751F;&#x6210;&#x8BE5;&#x7C7B;&#x7684;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;instanceof&#xFF08;&#x540E;&#x8DDF;&#x76EE;&#x6807;&#x7C7B;&#xFF0C;&#x5224;&#x65AD;&#x6808;&#x9876;&#x5143;&#x7D20;&#x662F;&#x5426;&#x4E3A;&#x76EE;&#x6807;&#x7C7B; / &#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x662F;&#x5219;&#x538B;&#x5165; 1&#xFF0C;&#x5426;&#x5219;&#x538B;&#x5165; 0&#xFF09;&#xFF0C;checkcast&#xFF08;&#x540E;&#x8DDF;&#x76EE;&#x6807;&#x7C7B;&#xFF0C;&#x5224;&#x65AD;&#x6808;&#x9876;&#x5143;&#x7D20;&#x662F;&#x5426;&#x4E3A;&#x76EE;&#x6807;&#x7C7B; / &#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x4FBF;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF09;&#xFF0C;athrow&#xFF08;&#x5C06;&#x6808;&#x9876;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#xFF09;&#xFF0C;&#x4EE5;&#x53CA; monitorenter&#xFF08;&#x4E3A;&#x6808;&#x9876;&#x5BF9;&#x8C61;&#x52A0;&#x9501;&#xFF09;&#x548C; monitorexit&#xFF08;&#x4E3A;&#x6808;&#x9876;&#x5BF9;&#x8C61;&#x89E3;&#x9501;&#xFF09;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x8BE5;&#x7C7B;&#x578B;&#x7684;&#x6307;&#x4EE4;&#x8FD8;&#x5305;&#x62EC;&#x5B57;&#x6BB5;&#x8BBF;&#x95EE;&#x6307;&#x4EE4;&#xFF0C;&#x5373;&#x9759;&#x6001;&#x5B57;&#x6BB5;&#x8BBF;&#x95EE;&#x6307;&#x4EE4; getstatic&#x3001;putstatic&#xFF0C;&#x548C;&#x5B9E;&#x4F8B;&#x5B57;&#x6BB5;&#x8BBF;&#x95EE;&#x6307;&#x4EE4; getfield&#x3001;putfield&#x3002;&#x8FD9;&#x56DB;&#x6761;&#x6307;&#x4EE4;&#x5747;&#x9644;&#x5E26;&#x7528;&#x4EE5;&#x5B9A;&#x4F4D;&#x76EE;&#x6807;&#x5B57;&#x6BB5;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x6240;&#x6D88;&#x8017;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x5143;&#x7D20;&#x7686;&#x4E0D;&#x540C;&#x3002;</p>
+<p><img src="../image/da3ff3aa4aaa2531d23286fec65b08d9.png" alt="img"></p>
+<p>&#x4EE5; putfield &#x4E3A;&#x4F8B;&#xFF0C;&#x5728;&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x5B83;&#x4F1A;&#x628A;&#x503C; v &#x5B58;&#x50A8;&#x81F3;&#x5BF9;&#x8C61; obj &#x7684;&#x76EE;&#x6807;&#x5B57;&#x6BB5;&#x4E4B;&#x4E2D;&#x3002;</p>
+<p>&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#xFF0C;&#x5305;&#x62EC; invokestatic&#xFF0C;invokespecial&#xFF0C;invokevirtual&#xFF0C;invokeinterface &#x4EE5;&#x53CA; invokedynamic&#x3002;&#x8FD9;&#x51E0;&#x6761;&#x5B57;&#x8282;&#x7801;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x53CD;&#x53CD;&#x590D;&#x590D;&#x63D0;&#x53CA;&#x4E86;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x5177;&#x4F53;&#x4ECB;&#x7ECD;&#x5404;&#x81EA;&#x7684;&#x542B;&#x4E49;&#x4E86;&#x3002;</p>
+<p>&#x9664; invokedynamic &#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x6240;&#x6D88;&#x8017;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x5143;&#x7D20;&#x662F;&#x6839;&#x636E;&#x8C03;&#x7528;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x63CF;&#x8FF0;&#x7B26;&#x6765;&#x786E;&#x5B9A;&#x7684;&#x3002;&#x5728;&#x8FDB;&#x884C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#xFF0C;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x4F9D;&#x6B21;&#x538B;&#x5165;&#x8C03;&#x7528;&#x8005;&#xFF08;invokestatic &#x4E0D;&#x9700;&#x8981;&#xFF09;&#xFF0C;&#x4EE5;&#x53CA;&#x5404;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code>  public int neg(int i) {
+    return -i;
+  }
+
+  public int foo(int i) {
+    return neg(neg(i));
+  }
+  // foo &#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#xFF1A;foo &#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+  public int foo(int i);
+    0  aload_0 [this]
+    1  aload_0 [this]
+    2  iload_1 [i]
+    3  invokevirtual FooTest.neg(int) : int [25]
+    6  invokevirtual FooTest.neg(int) : int [25]
+    9  ireturn
+</code></pre><p>&#x4EE5;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E3A;&#x4F8B;&#xFF0C;&#x5F53;&#x8C03;&#x7528; foo(2) &#x65F6;&#xFF0C;&#x6BCF;&#x6761;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x524D;&#x540E;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x7A7A;&#x95F4;&#x4EE5;&#x53CA;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x7684;&#x5206;&#x5E03;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="../image/476fa1bcb6b36b5b651c2a4101073295.png" alt="img"></p>
+<p>&#x6570;&#x7EC4;&#x76F8;&#x5173;&#x6307;&#x4EE4;&#xFF0C;&#x5305;&#x62EC;&#x65B0;&#x5EFA;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x6570;&#x7EC4;&#x7684; newarray&#xFF0C;&#x65B0;&#x5EFA;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x6570;&#x7EC4;&#x7684; anewarray&#xFF0C;&#x751F;&#x6210;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x7684; multianewarray&#xFF0C;&#x4EE5;&#x53CA;&#x6C42;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x7684; arraylength&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5B83;&#x8FD8;&#x5305;&#x62EC;&#x6570;&#x7EC4;&#x7684;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#x4EE5;&#x53CA;&#x5B58;&#x50A8;&#x6307;&#x4EE4;&#x3002;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x662F;&#x533A;&#x5206;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;int &#x6570;&#x7EC4;&#x7684;&#x52A0;&#x8F7D;&#x6307;&#x4EE4;&#x4E3A; iaload&#xFF0C;&#x5B58;&#x50A8;&#x6307;&#x4EE4;&#x4E3A; iastore&#x3002;</p>
+<p><img src="../image/5d935dcdd55e9f8461a6e5b0ac22001f.jpg" alt="img"></p>
+<p><strong>&#x6570;&#x7EC4;&#x8BBF;&#x95EE;&#x6307;&#x4EE4;&#x8868;</strong></p>
+<p>&#x63A7;&#x5236;&#x6D41;&#x6307;&#x4EE4;&#xFF0C;&#x5305;&#x62EC;&#x65E0;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C; goto&#xFF0C;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;&#x6307;&#x4EE4;&#xFF0C;tableswitch &#x548C; lookupswtich&#xFF08;&#x524D;&#x8005;&#x9488;&#x5BF9;&#x5BC6;&#x96C6;&#x7684; cases&#xFF0C;&#x540E;&#x8005;&#x9488;&#x5BF9;&#x7A00;&#x758F;&#x7684; cases&#xFF09;&#xFF0C;&#x8FD4;&#x56DE;&#x6307;&#x4EE4;&#xFF0C;&#x4EE5;&#x53CA;&#x88AB;&#x5E9F;&#x5F03;&#x7684; jsr&#xFF0C;ret &#x6307;&#x4EE4;&#x3002;&#x5176;&#x4E2D;&#x8FD4;&#x56DE;&#x6307;&#x4EE4;&#x662F;&#x533A;&#x5206;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x8FD4;&#x56DE; int &#x503C;&#x7684;&#x6307;&#x4EE4;&#x4E3A; ireturn&#x3002;</p>
+<p><img src="../image/f5195b5425a9547af9ce8371aef5c4f0.jpg" alt="img"></p>
+<p><strong>&#x8FD4;&#x56DE;&#x6307;&#x4EE4;&#x8868;</strong></p>
+<p>&#x9664;&#x8FD4;&#x56DE;&#x6307;&#x4EE4;&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x6307;&#x4EE4;&#x5747;&#x9644;&#x5E26;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x5B57;&#x8282;&#x7801;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x4EE3;&#x8868;&#x9700;&#x8981;&#x8DF3;&#x8F6C;&#x5230;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684; abs &#x65B9;&#x6CD5;&#x4E2D;&#x504F;&#x79FB;&#x91CF;&#x4E3A; 1 &#x7684;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;&#x6307;&#x4EE4;&#xFF0C;&#x5F53;&#x6808;&#x9876;&#x5143;&#x7D20;&#x5C0F;&#x4E8E; 0 &#x65F6;&#xFF0C;&#x8DF3;&#x8F6C;&#x81F3;&#x504F;&#x79FB;&#x91CF;&#x4E3A; 6 &#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<pre><code>  public int abs(int i) {
+    if (i &gt;= 0) {
+      return i;
+    }
+    return -i;
+  }
+  // &#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;
+  public int abs(int i);
+    0  iload_1 [i]
+    1  iflt 6
+    4  iload_1 [i]
+    5  ireturn
+    6  iload_1 [i]
+    7  ineg
+    8  ireturn
+</code></pre><p>&#x5269;&#x4F59;&#x7684; Java &#x5B57;&#x8282;&#x7801;&#x51E0;&#x4E4E;&#x90FD;&#x548C;&#x8BA1;&#x7B97;&#x76F8;&#x5173;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x518D;&#x8BE6;&#x7EC6;&#x9610;&#x8FF0;&#x4E86;&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;&#x4E0E;&#x5B9E;&#x8DF5;">&#x603B;&#x7ED3;&#x4E0E;&#x5B9E;&#x8DF5;</h2>
+<p>&#x4ECA;&#x5929;&#x6211;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E86;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x7684; Java &#x5B57;&#x8282;&#x7801;&#x3002;</p>
+<p>Java &#x65B9;&#x6CD5;&#x7684;&#x6808;&#x6862;&#x5206;&#x4E3A;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x5C06;&#x53D8;&#x91CF;&#x4ECE;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x52A0;&#x8F7D;&#x81F3;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E2D;&#xFF0C;&#x8FDB;&#x884C;&#x4E00;&#x756A;&#x8FD0;&#x7B97;&#x4E4B;&#x540E;&#x518D;&#x5B58;&#x50A8;&#x56DE;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x4E2D;&#x3002;</p>
+<p>Java &#x5B57;&#x8282;&#x7801;&#x53EF;&#x4EE5;&#x5212;&#x5206;&#x4E3A;&#x5F88;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x52A0;&#x8F7D;&#x5E38;&#x91CF;&#x6307;&#x4EE4;&#xFF0C;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x4E13;&#x7528;&#x6307;&#x4EE4;&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x533A;&#x8BBF;&#x95EE;&#x6307;&#x4EE4;&#xFF0C;Java &#x76F8;&#x5173;&#x6307;&#x4EE4;&#xFF0C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#xFF0C;&#x6570;&#x7EC4;&#x76F8;&#x5173;&#x6307;&#x4EE4;&#xFF0C;&#x63A7;&#x5236;&#x6D41;&#x6307;&#x4EE4;&#xFF0C;&#x4EE5;&#x53CA;&#x8BA1;&#x7B97;&#x76F8;&#x5173;&#x6307;&#x4EE4;&#x3002;</p>
+<p>&#x4ECA;&#x5929;&#x7684;&#x5B9E;&#x8DF5;&#x73AF;&#x8282;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x81EA;&#x5DF1;&#x5206;&#x6790;&#x4E00;&#x6BB5;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x5728;&#x8349;&#x7A3F;&#x4E0A;&#x753B;&#x51FA;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6570;&#x7EC4;&#x4EE5;&#x53CA;&#x64CD;&#x4F5C;&#x6570;&#x6808;&#x5206;&#x5E03;&#x56FE;&#x3002;&#x5F53;&#x78B0;&#x5230;&#x4E0D;&#x719F;&#x6089;&#x7684;&#x6307;&#x4EE4;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x67E5;&#x9605;<a href="https://docs.oracle.com/javase/specs/jvms/se10/html/jvms-6.html#jvms-6.5" target="_blank">Java &#x865A;&#x62DF;&#x673A;&#x89C4;&#x8303;&#x7B2C; 6.5 &#x5C0F;&#x8282;</a> &#xFF0C;&#x6216;&#x8005;<a href="https://cs.au.dk/~mis/dOvs/jvmspec/ref-Java.html" target="_blank">&#x6B64;&#x94FE;&#x63A5;</a>&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="18.html" class="navigation navigation-prev " aria-label="Previous page: 18 | 即时编译器的中间表达形式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="20.html" class="navigation navigation-next " aria-label="Next page: 20 | 方法内联（上）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"19 | Java字节码（基础篇）","level":"1.1.21","depth":2,"next":{"title":"20 | 方法内联（上）","level":"1.1.22","depth":2,"path":"doc/20.md","ref":"doc/20.md","articles":[]},"previous":{"title":"18 | 即时编译器的中间表达形式","level":"1.1.20","depth":2,"path":"doc/18.md","ref":"doc/18.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"doc/19.md","mtime":"2019-03-14T10:20:53.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T08:30:49.232Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
